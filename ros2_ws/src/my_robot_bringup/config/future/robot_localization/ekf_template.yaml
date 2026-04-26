@@ -1,0 +1,41 @@
+ekf_filter_node:
+  ros__parameters:
+    frequency: 30.0
+    sensor_timeout: 0.2
+    two_d_mode: false
+    publish_tf: true
+    publish_acceleration: false
+
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom
+
+    # Première base recommandée :
+    # - fusionner l'IMU d'ArduPilot
+    # - fusionner l'odom locale d'ArduPilot
+    # - ajouter ensuite le GPS via navsat_transform
+    imu0: /sensors/imu/data
+    imu0_differential: false
+    imu0_relative: false
+    imu0_queue_size: 10
+    imu0_remove_gravitational_acceleration: true
+    imu0_config: [
+      false, false, false,
+      true, true, true,
+      false, false, false,
+      true, true, true,
+      true, true, true
+    ]
+
+    odom0: /odom/raw
+    odom0_differential: false
+    odom0_relative: false
+    odom0_queue_size: 10
+    odom0_config: [
+      true, true, true,
+      true, true, true,
+      true, true, true,
+      true, true, true,
+      false, false, false
+    ]

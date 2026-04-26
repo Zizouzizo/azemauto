@@ -1,0 +1,4 @@
+Invoking command in '/home/azem/azemauto/ros2_ws/build/my_robot_rviz': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/azem/azemauto/ros2_ws/build/my_robot_rviz -- -j12 -l12
+Invoked command in '/home/azem/azemauto/ros2_ws/build/my_robot_rviz' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/azem/azemauto/ros2_ws/build/my_robot_rviz -- -j12 -l12
+Invoking command in '/home/azem/azemauto/ros2_ws/build/my_robot_rviz': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/azem/azemauto/ros2_ws/build/my_robot_rviz
+Invoked command in '/home/azem/azemauto/ros2_ws/build/my_robot_rviz' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/azem/azemauto/ros2_ws/build/my_robot_rviz

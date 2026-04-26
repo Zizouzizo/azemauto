@@ -1,0 +1,473 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="azemauto">
+  <!--
+    azemauto visual model for RViz and TF.
+    base_link is intentionally placed at the robot footprint center on the ground projection.
+    This matches common mobile robotics conventions and also matches the wheel coordinates
+    requested for this first realistic version.
+  -->
+
+  <!-- Overall dimensions measured on the real robot -->
+  <xacro:property name="robot_length" value="1.28"/>
+  <xacro:property name="robot_width" value="1.05"/>
+  <xacro:property name="robot_height" value="0.46"/>
+
+  <!-- Main body proportions kept intentionally simple but visually close to a wide rover -->
+  <xacro:property name="body_length" value="1.10"/>
+  <xacro:property name="body_width" value="0.78"/>
+  <xacro:property name="body_height" value="0.18"/>
+  <xacro:property name="body_center_z" value="0.19"/>
+
+  <xacro:property name="upper_deck_length" value="1.00"/>
+  <xacro:property name="upper_deck_width" value="0.74"/>
+  <xacro:property name="upper_deck_height" value="0.03"/>
+  <xacro:property name="upper_deck_center_z" value="0.27"/>
+
+  <xacro:property name="equipment_box_length" value="0.56"/>
+  <xacro:property name="equipment_box_width" value="0.44"/>
+  <xacro:property name="equipment_box_height" value="0.12"/>
+  <xacro:property name="equipment_box_center_z" value="0.35"/>
+
+  <!-- Wheel geometry and requested placement -->
+  <xacro:property name="wheel_radius" value="0.155"/>
+  <xacro:property name="wheel_width" value="0.09"/>
+  <xacro:property name="half_track" value="0.535"/>
+  <xacro:property name="half_wheelbase" value="0.475"/>
+
+  <xacro:property name="front_wheel_x" value="0.475"/>
+  <xacro:property name="rear_wheel_x" value="-0.475"/>
+  <xacro:property name="left_wheel_y" value="0.535"/>
+  <xacro:property name="right_wheel_y" value="-0.535"/>
+  <xacro:property name="wheel_center_z" value="0.155"/>
+
+  <!-- Simple guards and frame details to avoid a generic box silhouette -->
+  <xacro:property name="fender_length" value="0.30"/>
+  <xacro:property name="fender_width" value="0.14"/>
+  <xacro:property name="fender_thickness" value="0.025"/>
+  <xacro:property name="fender_center_z" value="0.34"/>
+  <xacro:property name="fender_inner_brace_width" value="0.015"/>
+  <xacro:property name="fender_inner_brace_height" value="0.08"/>
+  <xacro:property name="fender_inner_brace_offset" value="0.055"/>
+
+  <xacro:property name="side_rail_length" value="1.02"/>
+  <xacro:property name="side_rail_width" value="0.05"/>
+  <xacro:property name="side_rail_height" value="0.08"/>
+  <xacro:property name="side_rail_y" value="0.36"/>
+  <xacro:property name="side_rail_center_z" value="0.23"/>
+
+  <xacro:property name="bumper_length" value="0.06"/>
+  <xacro:property name="bumper_width" value="0.92"/>
+  <xacro:property name="bumper_height" value="0.06"/>
+  <xacro:property name="bumper_front_x" value="0.59"/>
+  <xacro:property name="bumper_rear_x" value="-0.59"/>
+  <xacro:property name="bumper_center_z" value="0.17"/>
+
+  <xacro:property name="front_axle_length" value="0.12"/>
+  <xacro:property name="front_axle_width" value="0.94"/>
+  <xacro:property name="front_axle_height" value="0.05"/>
+  <xacro:property name="front_axle_center_z" value="0.21"/>
+
+  <xacro:property name="rear_axle_length" value="0.12"/>
+  <xacro:property name="rear_axle_width" value="0.94"/>
+  <xacro:property name="rear_axle_height" value="0.05"/>
+  <xacro:property name="rear_axle_center_z" value="0.19"/>
+
+  <xacro:property name="upright_length" value="0.05"/>
+  <xacro:property name="upright_width" value="0.05"/>
+  <xacro:property name="front_upright_height" value="0.12"/>
+  <xacro:property name="rear_upright_height" value="0.10"/>
+  <xacro:property name="front_upright_center_z" value="0.25"/>
+  <xacro:property name="rear_upright_center_z" value="0.23"/>
+  <xacro:property name="upright_y" value="0.49"/>
+
+  <!-- Sensor frame placement requested for this phase -->
+  <xacro:property name="imu_x" value="0.0"/>
+  <xacro:property name="imu_y" value="0.0"/>
+  <xacro:property name="imu_z" value="0.05"/>
+
+  <xacro:property name="gps_x" value="-0.20"/>
+  <xacro:property name="gps_y" value="0.0"/>
+  <xacro:property name="gps_z" value="0.28"/>
+
+  <xacro:property name="laser_x" value="0.22"/>
+  <xacro:property name="laser_y" value="0.0"/>
+  <xacro:property name="laser_z" value="0.34"/>
+  <xacro:property name="laser_radius" value="0.055"/>
+  <xacro:property name="laser_height" value="0.075"/>
+
+  <xacro:property name="camera_x" value="0.40"/>
+  <xacro:property name="camera_y" value="0.0"/>
+  <xacro:property name="camera_z" value="0.30"/>
+  <xacro:property name="camera_rel_x" value="${camera_x - laser_x}"/>
+  <xacro:property name="camera_rel_y" value="${camera_y - laser_y}"/>
+  <xacro:property name="camera_rel_z" value="${camera_z - laser_z}"/>
+
+  <!-- Visual palette chosen to resemble a robust outdoor rover -->
+  <material name="chassis_blue">
+    <color rgba="0.12 0.26 0.63 1.0"/>
+  </material>
+  <material name="deck_gray">
+    <color rgba="0.29 0.31 0.34 1.0"/>
+  </material>
+  <material name="frame_dark">
+    <color rgba="0.12 0.12 0.13 1.0"/>
+  </material>
+  <material name="metal_light">
+    <color rgba="0.68 0.70 0.74 1.0"/>
+  </material>
+  <material name="wheel_black">
+    <color rgba="0.05 0.05 0.05 1.0"/>
+  </material>
+  <material name="wheel_rim">
+    <color rgba="0.55 0.58 0.62 1.0"/>
+  </material>
+  <material name="imu_green">
+    <color rgba="0.10 0.72 0.25 1.0"/>
+  </material>
+  <material name="gps_orange">
+    <color rgba="0.95 0.55 0.16 1.0"/>
+  </material>
+  <material name="camera_gray">
+    <color rgba="0.22 0.23 0.25 1.0"/>
+  </material>
+  <material name="camera_accent">
+    <color rgba="0.08 0.55 0.95 1.0"/>
+  </material>
+  <material name="lidar_black">
+    <color rgba="0.08 0.08 0.09 1.0"/>
+  </material>
+  <material name="lidar_red">
+    <color rgba="0.82 0.10 0.10 1.0"/>
+  </material>
+
+  <!-- Reusable macro for the four large wheels -->
+  <xacro:macro name="wheel_module" params="name x y z">
+    <link name="${name}">
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi / 2.0} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+        <material name="wheel_black"/>
+      </visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi / 2.0} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius * 0.45}" length="${wheel_width * 1.05}"/>
+        </geometry>
+        <material name="wheel_rim"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="${pi / 2.0} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${name}_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="${name}"/>
+      <origin xyz="${x} ${y} ${z}" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Reusable visual-only fender geometry -->
+  <xacro:macro name="fender_visual" params="prefix x y side">
+    <visual name="${prefix}_top">
+      <origin xyz="${x} ${y} ${fender_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${fender_length} ${fender_width} ${fender_thickness}"/>
+      </geometry>
+      <material name="frame_dark"/>
+    </visual>
+
+    <visual name="${prefix}_inner_brace">
+      <origin
+        xyz="${x} ${y - side * fender_inner_brace_offset} ${fender_center_z - 0.03}"
+        rpy="0 0 0"/>
+      <geometry>
+        <box
+          size="${fender_length * 0.80} ${fender_inner_brace_width} ${fender_inner_brace_height}"/>
+      </geometry>
+      <material name="metal_light"/>
+    </visual>
+  </xacro:macro>
+
+  <link name="base_link">
+    <!-- Main lower chassis -->
+    <visual name="lower_body">
+      <origin xyz="0 0 ${body_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${body_length} ${body_width} ${body_height}"/>
+      </geometry>
+      <material name="chassis_blue"/>
+    </visual>
+
+    <!-- Flat upper deck -->
+    <visual name="upper_deck">
+      <origin xyz="0 0 ${upper_deck_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${upper_deck_length} ${upper_deck_width} ${upper_deck_height}"/>
+      </geometry>
+      <material name="deck_gray"/>
+    </visual>
+
+    <!-- Central equipment bay to avoid an overly flat silhouette -->
+    <visual name="equipment_box">
+      <origin xyz="-0.02 0 ${equipment_box_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${equipment_box_length} ${equipment_box_width} ${equipment_box_height}"/>
+      </geometry>
+      <material name="deck_gray"/>
+    </visual>
+
+    <!-- Longitudinal rails -->
+    <visual name="left_rail">
+      <origin xyz="0 ${side_rail_y} ${side_rail_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${side_rail_length} ${side_rail_width} ${side_rail_height}"/>
+      </geometry>
+      <material name="frame_dark"/>
+    </visual>
+    <visual name="right_rail">
+      <origin xyz="0 ${-side_rail_y} ${side_rail_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${side_rail_length} ${side_rail_width} ${side_rail_height}"/>
+      </geometry>
+      <material name="frame_dark"/>
+    </visual>
+
+    <!-- Front and rear bumper bars -->
+    <visual name="front_bumper">
+      <origin xyz="${bumper_front_x} 0 ${bumper_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${bumper_length} ${bumper_width} ${bumper_height}"/>
+      </geometry>
+      <material name="frame_dark"/>
+    </visual>
+    <visual name="rear_bumper">
+      <origin xyz="${bumper_rear_x} 0 ${bumper_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${bumper_length} ${bumper_width} ${bumper_height}"/>
+      </geometry>
+      <material name="frame_dark"/>
+    </visual>
+
+    <!-- Visual hint of front steering and rear axle structure -->
+    <visual name="front_axle">
+      <origin xyz="${front_wheel_x} 0 ${front_axle_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${front_axle_length} ${front_axle_width} ${front_axle_height}"/>
+      </geometry>
+      <material name="metal_light"/>
+    </visual>
+    <visual name="rear_axle">
+      <origin xyz="${rear_wheel_x} 0 ${rear_axle_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${rear_axle_length} ${rear_axle_width} ${rear_axle_height}"/>
+      </geometry>
+      <material name="metal_light"/>
+    </visual>
+
+    <visual name="front_left_upright">
+      <origin xyz="${front_wheel_x} ${upright_y} ${front_upright_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${upright_length} ${upright_width} ${front_upright_height}"/>
+      </geometry>
+      <material name="metal_light"/>
+    </visual>
+    <visual name="front_right_upright">
+      <origin xyz="${front_wheel_x} ${-upright_y} ${front_upright_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${upright_length} ${upright_width} ${front_upright_height}"/>
+      </geometry>
+      <material name="metal_light"/>
+    </visual>
+    <visual name="rear_left_upright">
+      <origin xyz="${rear_wheel_x} ${upright_y} ${rear_upright_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${upright_length} ${upright_width} ${rear_upright_height}"/>
+      </geometry>
+      <material name="metal_light"/>
+    </visual>
+    <visual name="rear_right_upright">
+      <origin xyz="${rear_wheel_x} ${-upright_y} ${rear_upright_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${upright_length} ${upright_width} ${rear_upright_height}"/>
+      </geometry>
+      <material name="metal_light"/>
+    </visual>
+
+    <!-- Camera support block at the front -->
+    <visual name="camera_support">
+      <origin xyz="0.34 0 0.26" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.08 0.12 0.10"/>
+      </geometry>
+      <material name="frame_dark"/>
+    </visual>
+
+    <!-- Lidar pedestal integrated in the front sensor tower -->
+    <visual name="lidar_pedestal">
+      <origin xyz="${laser_x} ${laser_y} ${laser_z - 0.055}" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.022" length="0.11"/>
+      </geometry>
+      <material name="metal_light"/>
+    </visual>
+
+    <!-- Simple wheel arch guards -->
+    <xacro:fender_visual prefix="front_left" x="${front_wheel_x}" y="${left_wheel_y}" side="1.0"/>
+    <xacro:fender_visual prefix="front_right" x="${front_wheel_x}" y="${right_wheel_y}" side="-1.0"/>
+    <xacro:fender_visual prefix="rear_left" x="${rear_wheel_x}" y="${left_wheel_y}" side="1.0"/>
+    <xacro:fender_visual prefix="rear_right" x="${rear_wheel_x}" y="${right_wheel_y}" side="-1.0"/>
+
+    <!-- Simplified collision model kept intentionally compact -->
+    <collision>
+      <origin xyz="0 0 ${body_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${body_length} ${body_width} ${body_height}"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.02 0 ${equipment_box_center_z}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${equipment_box_length} ${equipment_box_width} ${equipment_box_height}"/>
+      </geometry>
+    </collision>
+
+    <!-- Approximate inertial properties for visualization-oriented use -->
+    <inertial>
+      <origin xyz="0 0 0.22" rpy="0 0 0"/>
+      <mass value="45.0"/>
+      <inertia
+        ixx="2.75"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="4.75"
+        iyz="0.0"
+        izz="6.10"/>
+    </inertial>
+  </link>
+
+  <!-- Sensor frames used by the rest of the ROS 2 workspace -->
+  <link name="imu_link">
+    <visual>
+      <geometry>
+        <box size="0.05 0.04 0.02"/>
+      </geometry>
+      <material name="imu_green"/>
+    </visual>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="${imu_x} ${imu_y} ${imu_z}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="gps_link">
+    <visual>
+      <origin xyz="0 0 0.065" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.012" length="0.13"/>
+      </geometry>
+      <material name="metal_light"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.14" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.07" length="0.018"/>
+      </geometry>
+      <material name="gps_orange"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.159" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.018"/>
+      </geometry>
+      <material name="gps_orange"/>
+    </visual>
+  </link>
+
+  <joint name="gps_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="gps_link"/>
+    <origin xyz="${gps_x} ${gps_y} ${gps_z}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="laser_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${laser_radius}" length="${laser_height * 0.70}"/>
+      </geometry>
+      <material name="lidar_black"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0 ${laser_height * 0.24}" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${laser_radius * 0.78}" length="${laser_height * 0.18}"/>
+      </geometry>
+      <material name="lidar_red"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0 ${laser_height * 0.35}" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="${laser_radius * 0.18}"/>
+      </geometry>
+      <material name="lidar_black"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${laser_radius}" length="${laser_height}"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser_link"/>
+    <origin xyz="${laser_x} ${laser_y} ${laser_z}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="camera_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.09 0.03 0.03"/>
+      </geometry>
+      <material name="camera_gray"/>
+    </visual>
+    <visual>
+      <origin xyz="0.042 0.010 0" rpy="0 ${pi / 2.0} 0"/>
+      <geometry>
+        <cylinder radius="0.008" length="0.010"/>
+      </geometry>
+      <material name="camera_accent"/>
+    </visual>
+    <visual>
+      <origin xyz="0.042 -0.010 0" rpy="0 ${pi / 2.0} 0"/>
+      <geometry>
+        <cylinder radius="0.008" length="0.010"/>
+      </geometry>
+      <material name="camera_accent"/>
+    </visual>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <parent link="laser_link"/>
+    <child link="camera_link"/>
+    <origin xyz="${camera_rel_x} ${camera_rel_y} ${camera_rel_z}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Wheels -->
+  <xacro:wheel_module name="front_left_wheel_link" x="${front_wheel_x}" y="${left_wheel_y}" z="${wheel_center_z}"/>
+  <xacro:wheel_module name="front_right_wheel_link" x="${front_wheel_x}" y="${right_wheel_y}" z="${wheel_center_z}"/>
+  <xacro:wheel_module name="rear_left_wheel_link" x="${rear_wheel_x}" y="${left_wheel_y}" z="${wheel_center_z}"/>
+  <xacro:wheel_module name="rear_right_wheel_link" x="${rear_wheel_x}" y="${right_wheel_y}" z="${wheel_center_z}"/>
+
+  <!-- camera_depth_frame and optical frames remain published by realsense2_camera -->
+</robot>

@@ -1,0 +1,67 @@
+/**:
+  ros__parameters:
+    use_sim_time: false
+
+    # Keep the APM/ArduPilot quirk disabled on normal UART links.
+    startup_px4_usb_quirk: false
+
+    # Minimal allowlist for a stable rover bringup focused on RC override
+    # and MANUAL_CONTROL testing. This avoids several MAVROS plugins that
+    # currently collide on generic topic names such as `status` and `send`.
+    plugin_allowlist:
+      - command
+      - imu
+      - local_position
+      - manual_control
+      - rc_io
+      - sys_status
+      - sys_time
+      - vfr_hud
+
+/**/sys:
+  ros__parameters:
+    disable_diag: false
+    heartbeat_rate: 1.0
+    heartbeat_mav_type: "ONBOARD_CONTROLLER"
+    conn_timeout: 10.0
+
+/**/time:
+  ros__parameters:
+    time_ref_source: "fcu"
+    timesync_mode: MAVLINK
+    timesync_avg_alpha: 0.6
+    timesync_rate: 10.0
+    system_time_rate: 1.0
+
+/**/imu:
+  ros__parameters:
+    frame_id: "imu_link"
+    linear_acceleration_stdev: 0.0003
+    angular_velocity_stdev: 0.0003490659
+    orientation_stdev: 1.0
+    magnetic_stdev: 0.0
+
+/**/global_position:
+  ros__parameters:
+    tf.send: false
+
+/**/local_position:
+  ros__parameters:
+    frame_id: "odom"
+    tf.send: false
+    tf.frame_id: "odom"
+    tf.child_frame_id: "base_link"
+    tf.send_fcu: false
+
+/**/setpoint_attitude:
+  ros__parameters:
+    tf.listen: false
+
+/**/setpoint_position:
+  ros__parameters:
+    tf.listen: false
+    mav_frame: LOCAL_NED
+
+/**/setpoint_velocity:
+  ros__parameters:
+    mav_frame: LOCAL_NED

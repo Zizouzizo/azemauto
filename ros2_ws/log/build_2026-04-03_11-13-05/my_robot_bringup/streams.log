@@ -1,0 +1,15 @@
+[0.593s] Invoking command in '/home/azem/azemauto/ros2_ws/build/my_robot_bringup': AMENT_PREFIX_PATH=/home/azem/azemauto/ros2_ws/install/my_robot_rviz:/home/azem/azemauto/ros2_ws/install/my_robot_description:/home/azem/azemauto/ros2_ws/install/my_robot_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/azem/azemauto/ros2_ws/install/my_robot_rviz:/home/azem/azemauto/ros2_ws/install/my_robot_description PYTHONPATH=/home/azem/azemauto/ros2_ws/build/my_robot_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azem/azemauto/ros2_ws/install/my_robot_bringup/lib/python3.10/site-packages:/home/azem/azemauto/ros2_ws/build/my_robot_bridge:/home/azem/azemauto/ros2_ws/install/my_robot_bridge/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/azem/azemauto/ros2_ws/build/my_robot_bringup/build --no-deps symlink_data
+[0.852s] running develop
+[1.017s] running egg_info
+[1.017s] writing my_robot_bringup.egg-info/PKG-INFO
+[1.017s] writing dependency_links to my_robot_bringup.egg-info/dependency_links.txt
+[1.017s] writing requirements to my_robot_bringup.egg-info/requires.txt
+[1.017s] writing top-level names to my_robot_bringup.egg-info/top_level.txt
+[1.019s] reading manifest file 'my_robot_bringup.egg-info/SOURCES.txt'
+[1.020s] writing manifest file 'my_robot_bringup.egg-info/SOURCES.txt'
+[1.021s] running build_ext
+[1.021s] Creating /home/azem/azemauto/ros2_ws/install/my_robot_bringup/lib/python3.10/site-packages/my-robot-bringup.egg-link (link to .)
+[1.022s] 
+[1.022s] Installed /home/azem/azemauto/ros2_ws/build/my_robot_bringup
+[1.022s] running symlink_data
+[30.029s] Invoked command in '/home/azem/azemauto/ros2_ws/build/my_robot_bringup' returned '0': AMENT_PREFIX_PATH=/home/azem/azemauto/ros2_ws/install/my_robot_rviz:/home/azem/azemauto/ros2_ws/install/my_robot_description:/home/azem/azemauto/ros2_ws/install/my_robot_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/azem/azemauto/ros2_ws/install/my_robot_rviz:/home/azem/azemauto/ros2_ws/install/my_robot_description PYTHONPATH=/home/azem/azemauto/ros2_ws/build/my_robot_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azem/azemauto/ros2_ws/install/my_robot_bringup/lib/python3.10/site-packages:/home/azem/azemauto/ros2_ws/build/my_robot_bridge:/home/azem/azemauto/ros2_ws/install/my_robot_bridge/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/azem/azemauto/ros2_ws/build/my_robot_bringup/build --no-deps symlink_data

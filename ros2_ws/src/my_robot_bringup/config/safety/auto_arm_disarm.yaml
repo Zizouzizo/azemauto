@@ -1,0 +1,32 @@
+auto_arm_disarm:
+  ros__parameters:
+    auto_arm_enabled: false
+    auto_disarm_enabled: false
+    guided_mode_name: "GUIDED"
+    disarm_timeout: 8.0
+    required_topics_timeout: 2.0
+    required_state_timeout: 2.0
+    min_scan_rate: 5.0
+    monitor_rate: 5.0
+    guided_settle_time: 0.5
+    arm_request_cooldown: 2.0
+    disarm_request_cooldown: 1.0
+    nonzero_linear_epsilon: 0.03
+    nonzero_angular_epsilon: 0.05
+    require_nav_cmd_for_arm: true
+    require_amcl_for_disarm: true
+    disarm_on_mode_change: true
+    disarm_on_sensor_loss: true
+    # Set high to disable disarm-on-collision-stop: the robot should replan
+    # and resume rather than disarm when the collision monitor halts it.
+    collision_stop_confirm_time: 999.0
+
+    state_topic: "/mavros/state"
+    cmd_vel_topic: "/cmd_vel"
+    cmd_vel_nav_topic: "/cmd_vel_nav"
+    amcl_pose_topic: "/amcl_pose"
+    scan_topic: "/scan"
+    odom_topic: "/odom/raw"
+    collision_polygon_topic: "/collision_monitor/polygon_stop"
+    set_mode_service: "/mavros/set_mode"
+    arming_service: "/mavros/cmd/arming"

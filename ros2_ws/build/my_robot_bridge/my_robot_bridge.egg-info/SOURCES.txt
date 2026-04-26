@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+my_robot_bridge/__init__.py
+my_robot_bridge/auto_arm_disarm_node.py
+my_robot_bridge/cmd_vel_to_mavros_node.py
+my_robot_bridge/mavros_bridge_node.py
+my_robot_bridge/scan_timestamp_bridge_node.py
+my_robot_bridge.egg-info/PKG-INFO
+my_robot_bridge.egg-info/SOURCES.txt
+my_robot_bridge.egg-info/dependency_links.txt
+my_robot_bridge.egg-info/entry_points.txt
+my_robot_bridge.egg-info/requires.txt
+my_robot_bridge.egg-info/top_level.txt
+my_robot_bridge.egg-info/zip-safe
+resource/my_robot_bridge

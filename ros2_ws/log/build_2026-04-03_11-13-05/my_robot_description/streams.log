@@ -1,0 +1,24 @@
+[30.034s] Invoking command in '/home/azem/azemauto/ros2_ws/build/my_robot_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/azem/azemauto/ros2_ws/build/my_robot_description -- -j12 -l12
+[30.069s] Invoked command in '/home/azem/azemauto/ros2_ws/build/my_robot_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/azem/azemauto/ros2_ws/build/my_robot_description -- -j12 -l12
+[30.078s] Invoking command in '/home/azem/azemauto/ros2_ws/build/my_robot_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/azem/azemauto/ros2_ws/build/my_robot_description
+[30.085s] -- Install configuration: ""
+[30.085s] -- Execute custom install script
+[30.086s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/launch/__pycache__/display_description.launch.cpython-310.pyc
+[30.086s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/launch/display_description.launch.py
+[30.086s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/urdf/azemauto.urdf.xacro
+[30.086s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/ament_index/resource_index/package_run_dependencies/my_robot_description
+[30.086s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/ament_index/resource_index/parent_prefix_path/my_robot_description
+[30.086s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/environment/ament_prefix_path.sh
+[30.086s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/environment/ament_prefix_path.dsv
+[30.086s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/environment/path.sh
+[30.087s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/environment/path.dsv
+[30.087s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/local_setup.bash
+[30.087s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/local_setup.sh
+[30.087s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/local_setup.zsh
+[30.087s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/local_setup.dsv
+[30.087s] -- Symlinking: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/package.dsv
+[30.098s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/ament_index/resource_index/packages/my_robot_description
+[30.098s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/cmake/my_robot_descriptionConfig.cmake
+[30.098s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/cmake/my_robot_descriptionConfig-version.cmake
+[30.098s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_description/share/my_robot_description/package.xml
+[30.100s] Invoked command in '/home/azem/azemauto/ros2_ws/build/my_robot_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/azem/azemauto/ros2_ws/build/my_robot_description

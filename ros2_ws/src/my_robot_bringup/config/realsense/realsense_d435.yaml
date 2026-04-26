@@ -1,0 +1,21 @@
+/**:
+  ros__parameters:
+    use_sim_time: false
+    serial_no: ""
+    base_frame_id: "camera_link"
+    publish_tf: true
+    tf_publish_rate: 15.0
+    enable_color: false
+    enable_depth: true
+    enable_accel: false
+    enable_gyro: false
+    enable_infra1: false
+    enable_infra2: false
+    enable_sync: false
+    initial_reset: false
+    clip_distance: 0.0
+    pointcloud.enable: false
+    align_depth.enable: false
+    rgb_camera.profile: "640x480x15"
+    depth_module.profile: "640x480x15"
+    depth_module.global_time_enabled: true

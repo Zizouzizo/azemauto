@@ -1,0 +1,12 @@
+cmd_vel_to_manual_control:
+  ros__parameters:
+    input_cmd_vel_topic: /cmd_vel
+    output_manual_control_topic: /mavros/mavros/send
+    publish_rate: 15.0
+    throttle_axis: "x"
+    steering_axis: "y"
+    max_linear_speed: 1.0
+    max_angular_speed: 0.8
+    steering_gain: 1.0
+    throttle_gain: 1.0
+    timeout_sec: 0.35

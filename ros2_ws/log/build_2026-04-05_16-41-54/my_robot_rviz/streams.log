@@ -1,0 +1,25 @@
+[0.010s] Invoking command in '/home/azem/azemauto/ros2_ws/build/my_robot_rviz': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/azem/azemauto/ros2_ws/build/my_robot_rviz -- -j12 -l12
+[0.045s] Invoked command in '/home/azem/azemauto/ros2_ws/build/my_robot_rviz' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/azem/azemauto/ros2_ws/build/my_robot_rviz -- -j12 -l12
+[0.055s] Invoking command in '/home/azem/azemauto/ros2_ws/build/my_robot_rviz': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/azem/azemauto/ros2_ws/build/my_robot_rviz
+[0.063s] -- Install configuration: ""
+[0.064s] -- Execute custom install script
+[0.064s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/rviz/azemauto.rviz
+[0.064s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/rviz/azemauto_localization.rviz
+[0.064s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/rviz/azemauto_mapping.rviz
+[0.064s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/rviz/azemauto_nav2.rviz
+[0.064s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/ament_index/resource_index/package_run_dependencies/my_robot_rviz
+[0.065s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/ament_index/resource_index/parent_prefix_path/my_robot_rviz
+[0.065s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/ament_prefix_path.sh
+[0.065s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/ament_prefix_path.dsv
+[0.065s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/path.sh
+[0.065s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/path.dsv
+[0.065s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.bash
+[0.065s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.sh
+[0.065s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.zsh
+[0.066s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.dsv
+[0.066s] -- Symlinking: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/package.dsv
+[0.075s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/ament_index/resource_index/packages/my_robot_rviz
+[0.075s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/cmake/my_robot_rvizConfig.cmake
+[0.075s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/cmake/my_robot_rvizConfig-version.cmake
+[0.075s] -- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/package.xml
+[0.077s] Invoked command in '/home/azem/azemauto/ros2_ws/build/my_robot_rviz' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/azem/azemauto/ros2_ws/build/my_robot_rviz

@@ -1,0 +1,6 @@
+[console_scripts]
+auto_arm_disarm = my_robot_bridge.auto_arm_disarm_node:main
+cmd_vel_to_mavros = my_robot_bridge.cmd_vel_to_mavros_node:main
+mavros_bridge = my_robot_bridge.mavros_bridge_node:main
+scan_timestamp_bridge = my_robot_bridge.scan_timestamp_bridge_node:main
+

@@ -1,0 +1,690 @@
+[0.000000] (-) TimerEvent: {}
+[0.000129] (-) JobUnselected: {'identifier': 'my_robot_description'}
+[0.000158] (my_robot_bridge) JobQueued: {'identifier': 'my_robot_bridge', 'dependencies': OrderedDict()}
+[0.000178] (my_robot_rviz) JobQueued: {'identifier': 'my_robot_rviz', 'dependencies': OrderedDict()}
+[0.000195] (my_robot_bringup) JobQueued: {'identifier': 'my_robot_bringup', 'dependencies': OrderedDict([('my_robot_bridge', '/home/azem/azemauto/ros2_ws/install/my_robot_bridge'), ('my_robot_description', '/home/azem/azemauto/ros2_ws/install/my_robot_description'), ('my_robot_rviz', '/home/azem/azemauto/ros2_ws/install/my_robot_rviz')])}
+[0.000217] (my_robot_bridge) JobStarted: {'identifier': 'my_robot_bridge'}
+[0.006518] (my_robot_rviz) JobStarted: {'identifier': 'my_robot_rviz'}
+[0.098842] (-) TimerEvent: {}
+[0.198990] (-) TimerEvent: {}
+[0.227940] (my_robot_rviz) JobProgress: {'identifier': 'my_robot_rviz', 'progress': 'cmake'}
+[0.228750] (my_robot_rviz) JobProgress: {'identifier': 'my_robot_rviz', 'progress': 'build'}
+[0.228783] (my_robot_rviz) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/azem/azemauto/ros2_ws/build/my_robot_rviz', '--', '-j12', '-l12'], 'cwd': '/home/azem/azemauto/ros2_ws/build/my_robot_rviz', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/azem'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('USER', 'azem'), ('LC_TIME', 'ar_TN.UTF-8'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"fr-fr","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('DEBUG', 'release'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/azem'), ('CHROME_DESKTOP', 'code.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-9c0be6dd-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'ar_TN.UTF-8'), ('MANAGERPID', '1956'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '2356'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2864'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'azem'), ('JOURNAL_STREAM', '8:2732'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'azem'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/azem/.codex/tmp/arg0/codex-arg08hY3xY:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/azem/.vscode/extensions/openai.chatgpt-26.325.31654-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/azem-Dell-G15-5510:@/tmp/.ICE-unix/2333,unix/azem-Dell-G15-5510:/tmp/.ICE-unix/2333'), ('INVOCATION_ID', 'dfcf1391f70b43eb9bc75e8bafef1699'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ar_TN.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'C.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ar_TN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ar_TN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019d52c8-71b2-7642-85a2-5f7167675fc6'), ('LC_MEASUREMENT', 'ar_TN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'ar_TN.UTF-8'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/azem/azemauto/ros2_ws/build/my_robot_rviz'), ('LC_ALL', 'C.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/azem/.config/Code/CachedData/072586267e68ece9a47aa43f8c108e0dcbf44622'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ar_TN.UTF-8'), ('LC_PAPER', 'ar_TN.UTF-8'), ('COLCON', '1'), ('VSCODE_PID', '2864'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.256459] (my_robot_rviz) CommandEnded: {'returncode': 0}
+[0.257008] (my_robot_rviz) JobProgress: {'identifier': 'my_robot_rviz', 'progress': 'install'}
+[0.263207] (my_robot_rviz) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/azem/azemauto/ros2_ws/build/my_robot_rviz'], 'cwd': '/home/azem/azemauto/ros2_ws/build/my_robot_rviz', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/azem'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('USER', 'azem'), ('LC_TIME', 'ar_TN.UTF-8'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"fr-fr","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('DEBUG', 'release'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/azem'), ('CHROME_DESKTOP', 'code.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-9c0be6dd-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'ar_TN.UTF-8'), ('MANAGERPID', '1956'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '2356'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2864'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'azem'), ('JOURNAL_STREAM', '8:2732'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'azem'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/azem/.codex/tmp/arg0/codex-arg08hY3xY:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/azem/.vscode/extensions/openai.chatgpt-26.325.31654-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/azem-Dell-G15-5510:@/tmp/.ICE-unix/2333,unix/azem-Dell-G15-5510:/tmp/.ICE-unix/2333'), ('INVOCATION_ID', 'dfcf1391f70b43eb9bc75e8bafef1699'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ar_TN.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'C.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ar_TN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ar_TN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019d52c8-71b2-7642-85a2-5f7167675fc6'), ('LC_MEASUREMENT', 'ar_TN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'ar_TN.UTF-8'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/azem/azemauto/ros2_ws/build/my_robot_rviz'), ('LC_ALL', 'C.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/azem/.config/Code/CachedData/072586267e68ece9a47aa43f8c108e0dcbf44622'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ar_TN.UTF-8'), ('LC_PAPER', 'ar_TN.UTF-8'), ('COLCON', '1'), ('VSCODE_PID', '2864'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.269376] (my_robot_rviz) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.269701] (my_robot_rviz) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.269936] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/rviz/azemauto.rviz\n'}
+[0.270041] (my_robot_rviz) StdoutLine: {'line': b'-- Symlinking: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/rviz/azemauto_mapping.rviz\n'}
+[0.276821] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/ament_index/resource_index/package_run_dependencies/my_robot_rviz\n'}
+[0.276984] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/ament_index/resource_index/parent_prefix_path/my_robot_rviz\n'}
+[0.277120] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/ament_prefix_path.sh\n'}
+[0.277173] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/ament_prefix_path.dsv\n'}
+[0.277255] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/path.sh\n'}
+[0.277343] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/path.dsv\n'}
+[0.277450] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.bash\n'}
+[0.277568] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.sh\n'}
+[0.277675] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.zsh\n'}
+[0.277782] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.dsv\n'}
+[0.277868] (my_robot_rviz) StdoutLine: {'line': b'-- Symlinking: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/package.dsv\n'}
+[0.284605] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/ament_index/resource_index/packages/my_robot_rviz\n'}
+[0.284787] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/cmake/my_robot_rvizConfig.cmake\n'}
+[0.284847] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/cmake/my_robot_rvizConfig-version.cmake\n'}
+[0.284904] (my_robot_rviz) StdoutLine: {'line': b'-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/package.xml\n'}
+[0.286064] (my_robot_rviz) CommandEnded: {'returncode': 0}
+[0.299126] (-) TimerEvent: {}
+[0.299961] (my_robot_rviz) JobEnded: {'identifier': 'my_robot_rviz', 'rc': 0}
+[0.399265] (-) TimerEvent: {}
+[0.499459] (-) TimerEvent: {}
+[0.527414] (my_robot_bridge) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/azem/azemauto/ros2_ws/build/my_robot_bridge/build', '--no-deps', 'symlink_data'], 'cwd': '/home/azem/azemauto/ros2_ws/build/my_robot_bridge', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '/home/azem', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'CODEX_CI': '1', 'USER': 'azem', 'LC_TIME': 'ar_TN.UTF-8', 'CODEX_INTERNAL_ORIGINATOR_OVERRIDE': 'codex_vscode', 'VSCODE_NLS_CONFIG': '{"userLocale":"en-us","osLocale":"fr-fr","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'XDG_SESSION_TYPE': 'x11', 'DEBUG': 'release', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/azem', 'CHROME_DESKTOP': 'code.desktop', 'DESKTOP_SESSION': 'ubuntu', 'VSCODE_IPC_HOOK': '/run/user/1000/vscode-9c0be6dd-1.10-main.sock', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': 'cat', 'LC_MONETARY': 'ar_TN.UTF-8', 'MANAGERPID': '1956', 'LC_CTYPE': 'C.UTF-8', 'SYSTEMD_EXEC_PID': '2356', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': '', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '2864', 'VSCODE_CRASH_REPORTER_PROCESS_TYPE': 'extensionHost', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'azem', 'JOURNAL_STREAM': '8:2732', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'RUST_LOG': 'warn', 'USERNAME': 'azem', 'TERM': 'dumb', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/home/azem/.codex/tmp/arg0/codex-arg08hY3xY:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/azem/.vscode/extensions/openai.chatgpt-26.325.31654-linux-x64/bin/linux-x86_64', 'SESSION_MANAGER': 'local/azem-Dell-G15-5510:@/tmp/.ICE-unix/2333,unix/azem-Dell-G15-5510:/tmp/.ICE-unix/2333', 'INVOCATION_ID': 'dfcf1391f70b43eb9bc75e8bafef1699', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'ar_TN.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'C.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'ar_TN.UTF-8', 'XMODIFIERS': '@im=ibus', 'GH_PAGER': 'cat', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'ar_TN.UTF-8', 'QT_ACCESSIBILITY': '1', 'ELECTRON_RUN_AS_NODE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '019d52c8-71b2-7642-85a2-5f7167675fc6', 'LC_MEASUREMENT': 'ar_TN.UTF-8', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'LC_IDENTIFICATION': 'ar_TN.UTF-8', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/azem/azemauto/ros2_ws/build/my_robot_bridge', 'LC_ALL': 'C.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'VSCODE_CODE_CACHE_PATH': '/home/azem/.config/Code/CachedData/072586267e68ece9a47aa43f8c108e0dcbf44622', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/azem/azemauto/ros2_ws/build/my_robot_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azem/azemauto/ros2_ws/install/my_robot_bridge/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'ar_TN.UTF-8', 'LC_PAPER': 'ar_TN.UTF-8', 'COLCON': '1', 'VSCODE_PID': '2864'}, 'shell': False}
+[0.599549] (-) TimerEvent: {}
+[0.699720] (-) TimerEvent: {}
+[0.743003] (my_robot_bridge) StdoutLine: {'line': b'running develop\n'}
+[0.799802] (-) TimerEvent: {}
+[0.887474] (my_robot_bridge) StdoutLine: {'line': b'running egg_info\n'}
+[0.887608] (my_robot_bridge) StdoutLine: {'line': b'writing my_robot_bridge.egg-info/PKG-INFO\n'}
+[0.887782] (my_robot_bridge) StdoutLine: {'line': b'writing dependency_links to my_robot_bridge.egg-info/dependency_links.txt\n'}
+[0.887862] (my_robot_bridge) StdoutLine: {'line': b'writing entry points to my_robot_bridge.egg-info/entry_points.txt\n'}
+[0.888011] (my_robot_bridge) StdoutLine: {'line': b'writing requirements to my_robot_bridge.egg-info/requires.txt\n'}
+[0.888087] (my_robot_bridge) StdoutLine: {'line': b'writing top-level names to my_robot_bridge.egg-info/top_level.txt\n'}
+[0.889293] (my_robot_bridge) StdoutLine: {'line': b"reading manifest file 'my_robot_bridge.egg-info/SOURCES.txt'\n"}
+[0.894324] (my_robot_bridge) StdoutLine: {'line': b"writing manifest file 'my_robot_bridge.egg-info/SOURCES.txt'\n"}
+[0.895401] (my_robot_bridge) StdoutLine: {'line': b'running build_ext\n'}
+[0.895599] (my_robot_bridge) StdoutLine: {'line': b'Creating /home/azem/azemauto/ros2_ws/install/my_robot_bridge/lib/python3.10/site-packages/my-robot-bridge.egg-link (link to .)\n'}
+[0.896249] (my_robot_bridge) StdoutLine: {'line': b'Installing cmd_vel_to_mavros script to /home/azem/azemauto/ros2_ws/install/my_robot_bridge/lib/my_robot_bridge\n'}
+[0.896357] (my_robot_bridge) StdoutLine: {'line': b'Installing mavros_bridge script to /home/azem/azemauto/ros2_ws/install/my_robot_bridge/lib/my_robot_bridge\n'}
+[0.896480] (my_robot_bridge) StdoutLine: {'line': b'\n'}
+[0.896579] (my_robot_bridge) StdoutLine: {'line': b'Installed /home/azem/azemauto/ros2_ws/build/my_robot_bridge\n'}
+[0.896628] (my_robot_bridge) StdoutLine: {'line': b'running symlink_data\n'}
+[0.899869] (-) TimerEvent: {}
+[0.917216] (my_robot_bridge) CommandEnded: {'returncode': 0}
+[0.924276] (my_robot_bridge) JobEnded: {'identifier': 'my_robot_bridge', 'rc': 0}
+[0.925273] (my_robot_bringup) JobStarted: {'identifier': 'my_robot_bringup'}
+[0.999960] (-) TimerEvent: {}
+[1.100116] (-) TimerEvent: {}
+[1.200366] (-) TimerEvent: {}
+[1.300609] (-) TimerEvent: {}
+[1.400754] (-) TimerEvent: {}
+[1.500912] (-) TimerEvent: {}
+[1.601115] (-) TimerEvent: {}
+[1.701364] (-) TimerEvent: {}
+[1.801594] (-) TimerEvent: {}
+[1.901801] (-) TimerEvent: {}
+[2.002098] (-) TimerEvent: {}
+[2.102394] (-) TimerEvent: {}
+[2.202932] (-) TimerEvent: {}
+[2.303131] (-) TimerEvent: {}
+[2.403533] (-) TimerEvent: {}
+[2.504009] (-) TimerEvent: {}
+[2.604400] (-) TimerEvent: {}
+[2.704848] (-) TimerEvent: {}
+[2.805292] (-) TimerEvent: {}
+[2.905695] (-) TimerEvent: {}
+[3.005914] (-) TimerEvent: {}
+[3.106328] (-) TimerEvent: {}
+[3.206503] (-) TimerEvent: {}
+[3.306709] (-) TimerEvent: {}
+[3.406874] (-) TimerEvent: {}
+[3.507331] (-) TimerEvent: {}
+[3.607536] (-) TimerEvent: {}
+[3.707781] (-) TimerEvent: {}
+[3.807954] (-) TimerEvent: {}
+[3.908399] (-) TimerEvent: {}
+[4.008771] (-) TimerEvent: {}
+[4.109190] (-) TimerEvent: {}
+[4.209433] (-) TimerEvent: {}
+[4.309658] (-) TimerEvent: {}
+[4.409907] (-) TimerEvent: {}
+[4.510126] (-) TimerEvent: {}
+[4.610276] (-) TimerEvent: {}
+[4.710468] (-) TimerEvent: {}
+[4.810634] (-) TimerEvent: {}
+[4.910777] (-) TimerEvent: {}
+[5.011048] (-) TimerEvent: {}
+[5.111365] (-) TimerEvent: {}
+[5.211574] (-) TimerEvent: {}
+[5.311782] (-) TimerEvent: {}
+[5.412179] (-) TimerEvent: {}
+[5.512665] (-) TimerEvent: {}
+[5.612871] (-) TimerEvent: {}
+[5.713062] (-) TimerEvent: {}
+[5.813293] (-) TimerEvent: {}
+[5.913502] (-) TimerEvent: {}
+[6.013668] (-) TimerEvent: {}
+[6.113855] (-) TimerEvent: {}
+[6.214249] (-) TimerEvent: {}
+[6.314471] (-) TimerEvent: {}
+[6.414808] (-) TimerEvent: {}
+[6.515002] (-) TimerEvent: {}
+[6.615391] (-) TimerEvent: {}
+[6.715780] (-) TimerEvent: {}
+[6.816180] (-) TimerEvent: {}
+[6.916685] (-) TimerEvent: {}
+[7.016870] (-) TimerEvent: {}
+[7.117089] (-) TimerEvent: {}
+[7.217532] (-) TimerEvent: {}
+[7.317785] (-) TimerEvent: {}
+[7.418290] (-) TimerEvent: {}
+[7.518599] (-) TimerEvent: {}
+[7.618790] (-) TimerEvent: {}
+[7.719205] (-) TimerEvent: {}
+[7.819508] (-) TimerEvent: {}
+[7.920083] (-) TimerEvent: {}
+[8.020293] (-) TimerEvent: {}
+[8.120527] (-) TimerEvent: {}
+[8.220739] (-) TimerEvent: {}
+[8.321007] (-) TimerEvent: {}
+[8.421198] (-) TimerEvent: {}
+[8.521396] (-) TimerEvent: {}
+[8.621855] (-) TimerEvent: {}
+[8.722058] (-) TimerEvent: {}
+[8.822439] (-) TimerEvent: {}
+[8.922888] (-) TimerEvent: {}
+[9.023272] (-) TimerEvent: {}
+[9.123693] (-) TimerEvent: {}
+[9.223853] (-) TimerEvent: {}
+[9.324316] (-) TimerEvent: {}
+[9.424759] (-) TimerEvent: {}
+[9.525193] (-) TimerEvent: {}
+[9.625664] (-) TimerEvent: {}
+[9.725820] (-) TimerEvent: {}
+[9.826203] (-) TimerEvent: {}
+[9.926713] (-) TimerEvent: {}
+[10.026909] (-) TimerEvent: {}
+[10.127123] (-) TimerEvent: {}
+[10.227415] (-) TimerEvent: {}
+[10.327993] (-) TimerEvent: {}
+[10.428262] (-) TimerEvent: {}
+[10.528562] (-) TimerEvent: {}
+[10.628995] (-) TimerEvent: {}
+[10.729234] (-) TimerEvent: {}
+[10.829627] (-) TimerEvent: {}
+[10.929818] (-) TimerEvent: {}
+[11.030307] (-) TimerEvent: {}
+[11.130777] (-) TimerEvent: {}
+[11.230969] (-) TimerEvent: {}
+[11.331160] (-) TimerEvent: {}
+[11.431319] (-) TimerEvent: {}
+[11.531879] (-) TimerEvent: {}
+[11.632409] (-) TimerEvent: {}
+[11.732771] (-) TimerEvent: {}
+[11.833282] (-) TimerEvent: {}
+[11.933667] (-) TimerEvent: {}
+[12.033917] (-) TimerEvent: {}
+[12.134425] (-) TimerEvent: {}
+[12.234824] (-) TimerEvent: {}
+[12.335010] (-) TimerEvent: {}
+[12.435171] (-) TimerEvent: {}
+[12.535350] (-) TimerEvent: {}
+[12.635557] (-) TimerEvent: {}
+[12.735765] (-) TimerEvent: {}
+[12.835926] (-) TimerEvent: {}
+[12.936303] (-) TimerEvent: {}
+[13.036574] (-) TimerEvent: {}
+[13.136764] (-) TimerEvent: {}
+[13.236920] (-) TimerEvent: {}
+[13.337301] (-) TimerEvent: {}
+[13.437712] (-) TimerEvent: {}
+[13.537886] (-) TimerEvent: {}
+[13.638033] (-) TimerEvent: {}
+[13.738535] (-) TimerEvent: {}
+[13.839023] (-) TimerEvent: {}
+[13.939409] (-) TimerEvent: {}
+[14.039914] (-) TimerEvent: {}
+[14.140151] (-) TimerEvent: {}
+[14.240702] (-) TimerEvent: {}
+[14.341212] (-) TimerEvent: {}
+[14.441611] (-) TimerEvent: {}
+[14.541764] (-) TimerEvent: {}
+[14.641926] (-) TimerEvent: {}
+[14.742384] (-) TimerEvent: {}
+[14.842822] (-) TimerEvent: {}
+[14.943147] (-) TimerEvent: {}
+[15.043345] (-) TimerEvent: {}
+[15.143759] (-) TimerEvent: {}
+[15.243946] (-) TimerEvent: {}
+[15.344146] (-) TimerEvent: {}
+[15.444541] (-) TimerEvent: {}
+[15.544764] (-) TimerEvent: {}
+[15.644979] (-) TimerEvent: {}
+[15.745407] (-) TimerEvent: {}
+[15.845613] (-) TimerEvent: {}
+[15.946128] (-) TimerEvent: {}
+[16.046598] (-) TimerEvent: {}
+[16.146792] (-) TimerEvent: {}
+[16.247167] (-) TimerEvent: {}
+[16.347441] (-) TimerEvent: {}
+[16.447776] (-) TimerEvent: {}
+[16.548256] (-) TimerEvent: {}
+[16.648651] (-) TimerEvent: {}
+[16.748912] (-) TimerEvent: {}
+[16.849113] (-) TimerEvent: {}
+[16.949630] (-) TimerEvent: {}
+[17.049841] (-) TimerEvent: {}
+[17.150041] (-) TimerEvent: {}
+[17.250215] (-) TimerEvent: {}
+[17.350392] (-) TimerEvent: {}
+[17.450562] (-) TimerEvent: {}
+[17.550727] (-) TimerEvent: {}
+[17.650899] (-) TimerEvent: {}
+[17.751150] (-) TimerEvent: {}
+[17.851540] (-) TimerEvent: {}
+[17.951768] (-) TimerEvent: {}
+[18.051930] (-) TimerEvent: {}
+[18.152146] (-) TimerEvent: {}
+[18.252541] (-) TimerEvent: {}
+[18.352791] (-) TimerEvent: {}
+[18.452953] (-) TimerEvent: {}
+[18.553144] (-) TimerEvent: {}
+[18.653564] (-) TimerEvent: {}
+[18.753767] (-) TimerEvent: {}
+[18.853934] (-) TimerEvent: {}
+[18.954151] (-) TimerEvent: {}
+[19.054387] (-) TimerEvent: {}
+[19.154767] (-) TimerEvent: {}
+[19.254923] (-) TimerEvent: {}
+[19.355076] (-) TimerEvent: {}
+[19.455399] (-) TimerEvent: {}
+[19.555608] (-) TimerEvent: {}
+[19.655837] (-) TimerEvent: {}
+[19.755997] (-) TimerEvent: {}
+[19.856382] (-) TimerEvent: {}
+[19.956812] (-) TimerEvent: {}
+[20.057023] (-) TimerEvent: {}
+[20.157185] (-) TimerEvent: {}
+[20.257377] (-) TimerEvent: {}
+[20.357543] (-) TimerEvent: {}
+[20.457702] (-) TimerEvent: {}
+[20.557850] (-) TimerEvent: {}
+[20.658010] (-) TimerEvent: {}
+[20.758206] (-) TimerEvent: {}
+[20.858655] (-) TimerEvent: {}
+[20.958816] (-) TimerEvent: {}
+[21.058971] (-) TimerEvent: {}
+[21.159363] (-) TimerEvent: {}
+[21.259573] (-) TimerEvent: {}
+[21.359785] (-) TimerEvent: {}
+[21.459943] (-) TimerEvent: {}
+[21.560101] (-) TimerEvent: {}
+[21.660505] (-) TimerEvent: {}
+[21.760677] (-) TimerEvent: {}
+[21.860855] (-) TimerEvent: {}
+[21.961016] (-) TimerEvent: {}
+[22.061251] (-) TimerEvent: {}
+[22.161557] (-) TimerEvent: {}
+[22.261780] (-) TimerEvent: {}
+[22.362172] (-) TimerEvent: {}
+[22.462644] (-) TimerEvent: {}
+[22.562835] (-) TimerEvent: {}
+[22.663260] (-) TimerEvent: {}
+[22.763694] (-) TimerEvent: {}
+[22.863902] (-) TimerEvent: {}
+[22.964100] (-) TimerEvent: {}
+[23.064507] (-) TimerEvent: {}
+[23.164762] (-) TimerEvent: {}
+[23.264961] (-) TimerEvent: {}
+[23.365350] (-) TimerEvent: {}
+[23.465536] (-) TimerEvent: {}
+[23.565729] (-) TimerEvent: {}
+[23.666189] (-) TimerEvent: {}
+[23.766378] (-) TimerEvent: {}
+[23.866781] (-) TimerEvent: {}
+[23.966978] (-) TimerEvent: {}
+[24.067354] (-) TimerEvent: {}
+[24.167854] (-) TimerEvent: {}
+[24.268058] (-) TimerEvent: {}
+[24.368575] (-) TimerEvent: {}
+[24.468726] (-) TimerEvent: {}
+[24.568882] (-) TimerEvent: {}
+[24.669081] (-) TimerEvent: {}
+[24.769365] (-) TimerEvent: {}
+[24.869879] (-) TimerEvent: {}
+[24.970233] (-) TimerEvent: {}
+[25.070615] (-) TimerEvent: {}
+[25.171164] (-) TimerEvent: {}
+[25.271609] (-) TimerEvent: {}
+[25.372156] (-) TimerEvent: {}
+[25.472352] (-) TimerEvent: {}
+[25.572831] (-) TimerEvent: {}
+[25.673272] (-) TimerEvent: {}
+[25.773663] (-) TimerEvent: {}
+[25.874088] (-) TimerEvent: {}
+[25.974277] (-) TimerEvent: {}
+[26.074713] (-) TimerEvent: {}
+[26.175148] (-) TimerEvent: {}
+[26.275546] (-) TimerEvent: {}
+[26.375736] (-) TimerEvent: {}
+[26.475910] (-) TimerEvent: {}
+[26.576348] (-) TimerEvent: {}
+[26.676837] (-) TimerEvent: {}
+[26.777215] (-) TimerEvent: {}
+[26.877724] (-) TimerEvent: {}
+[26.977882] (-) TimerEvent: {}
+[27.078265] (-) TimerEvent: {}
+[27.178728] (-) TimerEvent: {}
+[27.278920] (-) TimerEvent: {}
+[27.379122] (-) TimerEvent: {}
+[27.479331] (-) TimerEvent: {}
+[27.579548] (-) TimerEvent: {}
+[27.679756] (-) TimerEvent: {}
+[27.780237] (-) TimerEvent: {}
+[27.880627] (-) TimerEvent: {}
+[27.980830] (-) TimerEvent: {}
+[28.081177] (-) TimerEvent: {}
+[28.181393] (-) TimerEvent: {}
+[28.281593] (-) TimerEvent: {}
+[28.381780] (-) TimerEvent: {}
+[28.481972] (-) TimerEvent: {}
+[28.582507] (-) TimerEvent: {}
+[28.682695] (-) TimerEvent: {}
+[28.782897] (-) TimerEvent: {}
+[28.883278] (-) TimerEvent: {}
+[28.983671] (-) TimerEvent: {}
+[29.084113] (-) TimerEvent: {}
+[29.184398] (-) TimerEvent: {}
+[29.284772] (-) TimerEvent: {}
+[29.385251] (-) TimerEvent: {}
+[29.485681] (-) TimerEvent: {}
+[29.585827] (-) TimerEvent: {}
+[29.685987] (-) TimerEvent: {}
+[29.786230] (-) TimerEvent: {}
+[29.886439] (-) TimerEvent: {}
+[29.986684] (-) TimerEvent: {}
+[30.086889] (-) TimerEvent: {}
+[30.187281] (-) TimerEvent: {}
+[30.287670] (-) TimerEvent: {}
+[30.387863] (-) TimerEvent: {}
+[30.488241] (-) TimerEvent: {}
+[30.588675] (-) TimerEvent: {}
+[30.688960] (-) TimerEvent: {}
+[30.789383] (-) TimerEvent: {}
+[30.889583] (-) TimerEvent: {}
+[30.989763] (-) TimerEvent: {}
+[31.089934] (-) TimerEvent: {}
+[31.190128] (-) TimerEvent: {}
+[31.290580] (-) TimerEvent: {}
+[31.390748] (-) TimerEvent: {}
+[31.491228] (-) TimerEvent: {}
+[31.591639] (-) TimerEvent: {}
+[31.691836] (-) TimerEvent: {}
+[31.792211] (-) TimerEvent: {}
+[31.892603] (-) TimerEvent: {}
+[31.992895] (-) TimerEvent: {}
+[32.093374] (-) TimerEvent: {}
+[32.193786] (-) TimerEvent: {}
+[32.293972] (-) TimerEvent: {}
+[32.394145] (-) TimerEvent: {}
+[32.494365] (-) TimerEvent: {}
+[32.594599] (-) TimerEvent: {}
+[32.695057] (-) TimerEvent: {}
+[32.795505] (-) TimerEvent: {}
+[32.895711] (-) TimerEvent: {}
+[32.995909] (-) TimerEvent: {}
+[33.096096] (-) TimerEvent: {}
+[33.196583] (-) TimerEvent: {}
+[33.297044] (-) TimerEvent: {}
+[33.397317] (-) TimerEvent: {}
+[33.497765] (-) TimerEvent: {}
+[33.597934] (-) TimerEvent: {}
+[33.698311] (-) TimerEvent: {}
+[33.798736] (-) TimerEvent: {}
+[33.899182] (-) TimerEvent: {}
+[33.999649] (-) TimerEvent: {}
+[34.099805] (-) TimerEvent: {}
+[34.200190] (-) TimerEvent: {}
+[34.300356] (-) TimerEvent: {}
+[34.400762] (-) TimerEvent: {}
+[34.500943] (-) TimerEvent: {}
+[34.601145] (-) TimerEvent: {}
+[34.701349] (-) TimerEvent: {}
+[34.801545] (-) TimerEvent: {}
+[34.901770] (-) TimerEvent: {}
+[35.001936] (-) TimerEvent: {}
+[35.102088] (-) TimerEvent: {}
+[35.202569] (-) TimerEvent: {}
+[35.302766] (-) TimerEvent: {}
+[35.403250] (-) TimerEvent: {}
+[35.503720] (-) TimerEvent: {}
+[35.603915] (-) TimerEvent: {}
+[35.704421] (-) TimerEvent: {}
+[35.804607] (-) TimerEvent: {}
+[35.905145] (-) TimerEvent: {}
+[36.005541] (-) TimerEvent: {}
+[36.105770] (-) TimerEvent: {}
+[36.206171] (-) TimerEvent: {}
+[36.306357] (-) TimerEvent: {}
+[36.406784] (-) TimerEvent: {}
+[36.506941] (-) TimerEvent: {}
+[36.607323] (-) TimerEvent: {}
+[36.707720] (-) TimerEvent: {}
+[36.808057] (-) TimerEvent: {}
+[36.908439] (-) TimerEvent: {}
+[37.008639] (-) TimerEvent: {}
+[37.108820] (-) TimerEvent: {}
+[37.208991] (-) TimerEvent: {}
+[37.309158] (-) TimerEvent: {}
+[37.409547] (-) TimerEvent: {}
+[37.509795] (-) TimerEvent: {}
+[37.610013] (-) TimerEvent: {}
+[37.710401] (-) TimerEvent: {}
+[37.810564] (-) TimerEvent: {}
+[37.910774] (-) TimerEvent: {}
+[38.010941] (-) TimerEvent: {}
+[38.111411] (-) TimerEvent: {}
+[38.211802] (-) TimerEvent: {}
+[38.311962] (-) TimerEvent: {}
+[38.412192] (-) TimerEvent: {}
+[38.512382] (-) TimerEvent: {}
+[38.612593] (-) TimerEvent: {}
+[38.713079] (-) TimerEvent: {}
+[38.813463] (-) TimerEvent: {}
+[38.913967] (-) TimerEvent: {}
+[39.014353] (-) TimerEvent: {}
+[39.114860] (-) TimerEvent: {}
+[39.215248] (-) TimerEvent: {}
+[39.315755] (-) TimerEvent: {}
+[39.416217] (-) TimerEvent: {}
+[39.516392] (-) TimerEvent: {}
+[39.616629] (-) TimerEvent: {}
+[39.716883] (-) TimerEvent: {}
+[39.817077] (-) TimerEvent: {}
+[39.917315] (-) TimerEvent: {}
+[40.017628] (-) TimerEvent: {}
+[40.117878] (-) TimerEvent: {}
+[40.218071] (-) TimerEvent: {}
+[40.318571] (-) TimerEvent: {}
+[40.418723] (-) TimerEvent: {}
+[40.519162] (-) TimerEvent: {}
+[40.619551] (-) TimerEvent: {}
+[40.719707] (-) TimerEvent: {}
+[40.820200] (-) TimerEvent: {}
+[40.920405] (-) TimerEvent: {}
+[41.020738] (-) TimerEvent: {}
+[41.121248] (-) TimerEvent: {}
+[41.221446] (-) TimerEvent: {}
+[41.321772] (-) TimerEvent: {}
+[41.422237] (-) TimerEvent: {}
+[41.522627] (-) TimerEvent: {}
+[41.622768] (-) TimerEvent: {}
+[41.723017] (-) TimerEvent: {}
+[41.823195] (-) TimerEvent: {}
+[41.923392] (-) TimerEvent: {}
+[42.023870] (-) TimerEvent: {}
+[42.124035] (-) TimerEvent: {}
+[42.224223] (-) TimerEvent: {}
+[42.324619] (-) TimerEvent: {}
+[42.424778] (-) TimerEvent: {}
+[42.524934] (-) TimerEvent: {}
+[42.625356] (-) TimerEvent: {}
+[42.725584] (-) TimerEvent: {}
+[42.826028] (-) TimerEvent: {}
+[42.926210] (-) TimerEvent: {}
+[43.026629] (-) TimerEvent: {}
+[43.126865] (-) TimerEvent: {}
+[43.227035] (-) TimerEvent: {}
+[43.327426] (-) TimerEvent: {}
+[43.427636] (-) TimerEvent: {}
+[43.527811] (-) TimerEvent: {}
+[43.628315] (-) TimerEvent: {}
+[43.728617] (-) TimerEvent: {}
+[43.828768] (-) TimerEvent: {}
+[43.928923] (-) TimerEvent: {}
+[44.029144] (-) TimerEvent: {}
+[44.129542] (-) TimerEvent: {}
+[44.229770] (-) TimerEvent: {}
+[44.330229] (-) TimerEvent: {}
+[44.430636] (-) TimerEvent: {}
+[44.530813] (-) TimerEvent: {}
+[44.631008] (-) TimerEvent: {}
+[44.731228] (-) TimerEvent: {}
+[44.831469] (-) TimerEvent: {}
+[44.931649] (-) TimerEvent: {}
+[45.031808] (-) TimerEvent: {}
+[45.131964] (-) TimerEvent: {}
+[45.232159] (-) TimerEvent: {}
+[45.332650] (-) TimerEvent: {}
+[45.432802] (-) TimerEvent: {}
+[45.533247] (-) TimerEvent: {}
+[45.633419] (-) TimerEvent: {}
+[45.733764] (-) TimerEvent: {}
+[45.834181] (-) TimerEvent: {}
+[45.934349] (-) TimerEvent: {}
+[46.034858] (-) TimerEvent: {}
+[46.135238] (-) TimerEvent: {}
+[46.235631] (-) TimerEvent: {}
+[46.335819] (-) TimerEvent: {}
+[46.436040] (-) TimerEvent: {}
+[46.536539] (-) TimerEvent: {}
+[46.636773] (-) TimerEvent: {}
+[46.736932] (-) TimerEvent: {}
+[46.837311] (-) TimerEvent: {}
+[46.937718] (-) TimerEvent: {}
+[47.037898] (-) TimerEvent: {}
+[47.138336] (-) TimerEvent: {}
+[47.238753] (-) TimerEvent: {}
+[47.339138] (-) TimerEvent: {}
+[47.439407] (-) TimerEvent: {}
+[47.539895] (-) TimerEvent: {}
+[47.640073] (-) TimerEvent: {}
+[47.740481] (-) TimerEvent: {}
+[47.840769] (-) TimerEvent: {}
+[47.940925] (-) TimerEvent: {}
+[48.041366] (-) TimerEvent: {}
+[48.141570] (-) TimerEvent: {}
+[48.241779] (-) TimerEvent: {}
+[48.341938] (-) TimerEvent: {}
+[48.442152] (-) TimerEvent: {}
+[48.542544] (-) TimerEvent: {}
+[48.642686] (-) TimerEvent: {}
+[48.742830] (-) TimerEvent: {}
+[48.842989] (-) TimerEvent: {}
+[48.943235] (-) TimerEvent: {}
+[49.043637] (-) TimerEvent: {}
+[49.143793] (-) TimerEvent: {}
+[49.244021] (-) TimerEvent: {}
+[49.344238] (-) TimerEvent: {}
+[49.444645] (-) TimerEvent: {}
+[49.544941] (-) TimerEvent: {}
+[49.645146] (-) TimerEvent: {}
+[49.745362] (-) TimerEvent: {}
+[49.845602] (-) TimerEvent: {}
+[49.945927] (-) TimerEvent: {}
+[50.046121] (-) TimerEvent: {}
+[50.146316] (-) TimerEvent: {}
+[50.246715] (-) TimerEvent: {}
+[50.346897] (-) TimerEvent: {}
+[50.447192] (-) TimerEvent: {}
+[50.547582] (-) TimerEvent: {}
+[50.647774] (-) TimerEvent: {}
+[50.748208] (-) TimerEvent: {}
+[50.848397] (-) TimerEvent: {}
+[50.948696] (-) TimerEvent: {}
+[51.048881] (-) TimerEvent: {}
+[51.149263] (-) TimerEvent: {}
+[51.249774] (-) TimerEvent: {}
+[51.350225] (-) TimerEvent: {}
+[51.450734] (-) TimerEvent: {}
+[51.551249] (-) TimerEvent: {}
+[51.651630] (-) TimerEvent: {}
+[51.752137] (-) TimerEvent: {}
+[51.852541] (-) TimerEvent: {}
+[51.952750] (-) TimerEvent: {}
+[52.052948] (-) TimerEvent: {}
+[52.153380] (-) TimerEvent: {}
+[52.253844] (-) TimerEvent: {}
+[52.354227] (-) TimerEvent: {}
+[52.454383] (-) TimerEvent: {}
+[52.554639] (-) TimerEvent: {}
+[52.654858] (-) TimerEvent: {}
+[52.755292] (-) TimerEvent: {}
+[52.855523] (-) TimerEvent: {}
+[52.956038] (-) TimerEvent: {}
+[53.056220] (-) TimerEvent: {}
+[53.156600] (-) TimerEvent: {}
+[53.257104] (-) TimerEvent: {}
+[53.357497] (-) TimerEvent: {}
+[53.458002] (-) TimerEvent: {}
+[53.558385] (-) TimerEvent: {}
+[53.658773] (-) TimerEvent: {}
+[53.759171] (-) TimerEvent: {}
+[53.859551] (-) TimerEvent: {}
+[53.959980] (-) TimerEvent: {}
+[54.060177] (-) TimerEvent: {}
+[54.160630] (-) TimerEvent: {}
+[54.260842] (-) TimerEvent: {}
+[54.361289] (-) TimerEvent: {}
+[54.461681] (-) TimerEvent: {}
+[54.561919] (-) TimerEvent: {}
+[54.662299] (-) TimerEvent: {}
+[54.762518] (-) TimerEvent: {}
+[54.863015] (-) TimerEvent: {}
+[54.963240] (-) TimerEvent: {}
+[55.063644] (-) TimerEvent: {}
+[55.163764] (-) TimerEvent: {}
+[55.263999] (-) TimerEvent: {}
+[55.364511] (-) TimerEvent: {}
+[55.464761] (-) TimerEvent: {}
+[55.565163] (-) TimerEvent: {}
+[55.665550] (-) TimerEvent: {}
+[55.765786] (-) TimerEvent: {}
+[55.866258] (-) TimerEvent: {}
+[55.966763] (-) TimerEvent: {}
+[56.066907] (-) TimerEvent: {}
+[56.167278] (-) TimerEvent: {}
+[56.267474] (-) TimerEvent: {}
+[56.367723] (-) TimerEvent: {}
+[56.467928] (-) TimerEvent: {}
+[56.568366] (-) TimerEvent: {}
+[56.668829] (-) TimerEvent: {}
+[56.768985] (-) TimerEvent: {}
+[56.869286] (-) TimerEvent: {}
+[56.969456] (-) TimerEvent: {}
+[57.069915] (-) TimerEvent: {}
+[57.170149] (-) TimerEvent: {}
+[57.270582] (-) TimerEvent: {}
+[57.371064] (-) TimerEvent: {}
+[57.471271] (-) TimerEvent: {}
+[57.571777] (-) TimerEvent: {}
+[57.672215] (-) TimerEvent: {}
+[57.772419] (-) TimerEvent: {}
+[57.873007] (-) TimerEvent: {}
+[57.973388] (-) TimerEvent: {}
+[58.073773] (-) TimerEvent: {}
+[58.174174] (-) TimerEvent: {}
+[58.274419] (-) TimerEvent: {}
+[58.374923] (-) TimerEvent: {}
+[58.475099] (-) TimerEvent: {}
+[58.575323] (-) TimerEvent: {}
+[58.675547] (-) TimerEvent: {}
+[58.775820] (-) TimerEvent: {}
+[58.876209] (-) TimerEvent: {}
+[58.976626] (-) TimerEvent: {}
+[59.076772] (-) TimerEvent: {}
+[59.176931] (-) TimerEvent: {}
+[59.277325] (-) TimerEvent: {}
+[59.377758] (-) TimerEvent: {}
+[59.477952] (-) TimerEvent: {}
+[59.578424] (-) TimerEvent: {}
+[59.678568] (-) TimerEvent: {}
+[59.778768] (-) TimerEvent: {}
+[59.879003] (-) TimerEvent: {}
+[59.979248] (-) TimerEvent: {}
+[60.079744] (-) TimerEvent: {}
+[60.179899] (-) TimerEvent: {}
+[60.280282] (-) TimerEvent: {}
+[60.380791] (-) TimerEvent: {}
+[60.481179] (-) TimerEvent: {}
+[60.581471] (-) TimerEvent: {}
+[60.681646] (-) TimerEvent: {}
+[60.781931] (-) TimerEvent: {}
+[60.882327] (-) TimerEvent: {}
+[60.967048] (my_robot_bringup) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/azem/azemauto/ros2_ws/build/my_robot_bringup/build', '--no-deps', 'symlink_data'], 'cwd': '/home/azem/azemauto/ros2_ws/build/my_robot_bringup', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '/home/azem', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'CODEX_CI': '1', 'USER': 'azem', 'LC_TIME': 'ar_TN.UTF-8', 'CODEX_INTERNAL_ORIGINATOR_OVERRIDE': 'codex_vscode', 'VSCODE_NLS_CONFIG': '{"userLocale":"en-us","osLocale":"fr-fr","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'XDG_SESSION_TYPE': 'x11', 'DEBUG': 'release', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/azem', 'CHROME_DESKTOP': 'code.desktop', 'DESKTOP_SESSION': 'ubuntu', 'VSCODE_IPC_HOOK': '/run/user/1000/vscode-9c0be6dd-1.10-main.sock', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': 'cat', 'LC_MONETARY': 'ar_TN.UTF-8', 'MANAGERPID': '1956', 'LC_CTYPE': 'C.UTF-8', 'SYSTEMD_EXEC_PID': '2356', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': '', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '2864', 'VSCODE_CRASH_REPORTER_PROCESS_TYPE': 'extensionHost', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'azem', 'JOURNAL_STREAM': '8:2732', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'RUST_LOG': 'warn', 'USERNAME': 'azem', 'TERM': 'dumb', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/home/azem/.codex/tmp/arg0/codex-arg08hY3xY:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/azem/.vscode/extensions/openai.chatgpt-26.325.31654-linux-x64/bin/linux-x86_64', 'SESSION_MANAGER': 'local/azem-Dell-G15-5510:@/tmp/.ICE-unix/2333,unix/azem-Dell-G15-5510:/tmp/.ICE-unix/2333', 'INVOCATION_ID': 'dfcf1391f70b43eb9bc75e8bafef1699', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'ar_TN.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'C.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'ar_TN.UTF-8', 'XMODIFIERS': '@im=ibus', 'GH_PAGER': 'cat', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/azem/azemauto/ros2_ws/install/my_robot_rviz:/home/azem/azemauto/ros2_ws/install/my_robot_description:/home/azem/azemauto/ros2_ws/install/my_robot_bridge:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'ar_TN.UTF-8', 'QT_ACCESSIBILITY': '1', 'ELECTRON_RUN_AS_NODE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '019d52c8-71b2-7642-85a2-5f7167675fc6', 'LC_MEASUREMENT': 'ar_TN.UTF-8', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'LC_IDENTIFICATION': 'ar_TN.UTF-8', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/azem/azemauto/ros2_ws/build/my_robot_bringup', 'LC_ALL': 'C.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'VSCODE_CODE_CACHE_PATH': '/home/azem/.config/Code/CachedData/072586267e68ece9a47aa43f8c108e0dcbf44622', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/azem/azemauto/ros2_ws/build/my_robot_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azem/azemauto/ros2_ws/install/my_robot_bringup/lib/python3.10/site-packages:/home/azem/azemauto/ros2_ws/build/my_robot_bridge:/home/azem/azemauto/ros2_ws/install/my_robot_bridge/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'ar_TN.UTF-8', 'LC_PAPER': 'ar_TN.UTF-8', 'COLCON': '1', 'VSCODE_PID': '2864', 'CMAKE_PREFIX_PATH': '/home/azem/azemauto/ros2_ws/install/my_robot_rviz:/home/azem/azemauto/ros2_ws/install/my_robot_description'}, 'shell': False}
+[60.982435] (-) TimerEvent: {}
+[61.082575] (-) TimerEvent: {}
+[61.180377] (my_robot_bringup) StdoutLine: {'line': b'running develop\n'}
+[61.182638] (-) TimerEvent: {}
+[61.282784] (-) TimerEvent: {}
+[61.318419] (my_robot_bringup) StdoutLine: {'line': b'running egg_info\n'}
+[61.318620] (my_robot_bringup) StdoutLine: {'line': b'writing my_robot_bringup.egg-info/PKG-INFO\n'}
+[61.318681] (my_robot_bringup) StdoutLine: {'line': b'writing dependency_links to my_robot_bringup.egg-info/dependency_links.txt\n'}
+[61.318728] (my_robot_bringup) StdoutLine: {'line': b'writing requirements to my_robot_bringup.egg-info/requires.txt\n'}
+[61.318773] (my_robot_bringup) StdoutLine: {'line': b'writing top-level names to my_robot_bringup.egg-info/top_level.txt\n'}
+[61.319955] (my_robot_bringup) StdoutLine: {'line': b"reading manifest file 'my_robot_bringup.egg-info/SOURCES.txt'\n"}
+[61.320646] (my_robot_bringup) StdoutLine: {'line': b"writing manifest file 'my_robot_bringup.egg-info/SOURCES.txt'\n"}
+[61.321621] (my_robot_bringup) StdoutLine: {'line': b'running build_ext\n'}
+[61.321795] (my_robot_bringup) StdoutLine: {'line': b'Creating /home/azem/azemauto/ros2_ws/install/my_robot_bringup/lib/python3.10/site-packages/my-robot-bringup.egg-link (link to .)\n'}
+[61.322343] (my_robot_bringup) StdoutLine: {'line': b'\n'}
+[61.322417] (my_robot_bringup) StdoutLine: {'line': b'Installed /home/azem/azemauto/ros2_ws/build/my_robot_bringup\n'}
+[61.322471] (my_robot_bringup) StdoutLine: {'line': b'running symlink_data\n'}
+[61.322636] (my_robot_bringup) StdoutLine: {'line': b'symbolically linking /home/azem/azemauto/ros2_ws/build/my_robot_bringup/launch/pc_mapping.launch.py -> /home/azem/azemauto/ros2_ws/install/my_robot_bringup/share/my_robot_bringup/launch\n'}
+[61.322712] (my_robot_bringup) StdoutLine: {'line': b'symbolically linking /home/azem/azemauto/ros2_ws/build/my_robot_bringup/launch/pi_mapping.launch.py -> /home/azem/azemauto/ros2_ws/install/my_robot_bringup/share/my_robot_bringup/launch\n'}
+[61.322878] (my_robot_bringup) StdoutLine: {'line': b'creating /home/azem/azemauto/ros2_ws/install/my_robot_bringup/share/my_robot_bringup/config/mapping\n'}
+[61.322955] (my_robot_bringup) StdoutLine: {'line': b'symbolically linking /home/azem/azemauto/ros2_ws/build/my_robot_bringup/config/mapping/slam_toolbox_mapping.yaml -> /home/azem/azemauto/ros2_ws/install/my_robot_bringup/share/my_robot_bringup/config/mapping\n'}
+[61.323141] (my_robot_bringup) StdoutLine: {'line': b'symbolically linking /home/azem/azemauto/ros2_ws/build/my_robot_bringup/config/mapping/depth_to_scan.yaml -> /home/azem/azemauto/ros2_ws/install/my_robot_bringup/share/my_robot_bringup/config/mapping\n'}
+[61.323215] (my_robot_bringup) StdoutLine: {'line': b'creating /home/azem/azemauto/ros2_ws/install/my_robot_bringup/share/my_robot_bringup/config/teleop\n'}
+[61.323272] (my_robot_bringup) StdoutLine: {'line': b'symbolically linking /home/azem/azemauto/ros2_ws/build/my_robot_bringup/config/teleop/xbox_teleop.yaml -> /home/azem/azemauto/ros2_ws/install/my_robot_bringup/share/my_robot_bringup/config/teleop\n'}
+[61.323321] (my_robot_bringup) StdoutLine: {'line': b'symbolically linking /home/azem/azemauto/ros2_ws/build/my_robot_bringup/config/teleop/cmd_vel_to_mavros.yaml -> /home/azem/azemauto/ros2_ws/install/my_robot_bringup/share/my_robot_bringup/config/teleop\n'}
+[61.342060] (my_robot_bringup) CommandEnded: {'returncode': 0}
+[61.348544] (my_robot_bringup) JobEnded: {'identifier': 'my_robot_bringup', 'rc': 0}
+[61.349076] (-) EventReactorShutdown: {}

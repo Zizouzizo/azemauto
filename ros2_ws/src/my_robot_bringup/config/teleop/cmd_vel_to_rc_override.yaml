@@ -1,0 +1,15 @@
+cmd_vel_to_rc_override:
+  ros__parameters:
+    input_cmd_vel_topic: /cmd_vel
+    output_rc_override_topic: /mavros/mavros/override
+    publish_rate: 15.0
+    steering_channel: 1
+    throttle_channel: 3
+    neutral_pwm: 1500
+    min_pwm: 1100
+    max_pwm: 1900
+    max_linear_speed: 1.0
+    max_angular_speed: 0.8
+    steering_gain: 1.0
+    throttle_gain: 1.0
+    timeout_sec: 0.35

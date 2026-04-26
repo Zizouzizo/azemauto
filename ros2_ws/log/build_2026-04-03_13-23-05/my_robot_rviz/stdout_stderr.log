@@ -1,0 +1,20 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/rviz/azemauto.rviz
+-- Symlinking: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/rviz/azemauto_localization.rviz
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/rviz/azemauto_mapping.rviz
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/ament_index/resource_index/package_run_dependencies/my_robot_rviz
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/ament_index/resource_index/parent_prefix_path/my_robot_rviz
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/path.sh
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/environment/path.dsv
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.bash
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.sh
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.zsh
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/local_setup.dsv
+-- Symlinking: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/package.dsv
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/ament_index/resource_index/packages/my_robot_rviz
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/cmake/my_robot_rvizConfig.cmake
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/cmake/my_robot_rvizConfig-version.cmake
+-- Up-to-date symlink: /home/azem/azemauto/ros2_ws/install/my_robot_rviz/share/my_robot_rviz/package.xml
