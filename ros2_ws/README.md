@@ -1,4 +1,4 @@
-# azemauto ROS 2 Humble Workspace
+# azemautorobot ROS 2 Humble Workspace
 
 Workspace ROS 2 Humble structuré pour un robot réel avec ArduPilot bas niveau, Raspberry Pi 4 embarqué et PC Ubuntu pour supervision, téléopération, mapping puis préparation à la navigation autonome.
 
