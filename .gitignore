@@ -1,0 +1,15 @@
+# ROS 2/colcon generated output
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+ros2_ws/.ros/log/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Local/editor noise
+.vscode/
+.idea/
+*.swp
+*~

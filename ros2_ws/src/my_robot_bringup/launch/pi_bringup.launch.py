@@ -14,7 +14,7 @@ def generate_launch_description():
     xacro_file = f'{description_share}/urdf/azemauto.urdf.xacro'
     mavros_config = f'{bringup_share}/config/mavros/mavros_params.yaml'
     realsense_config = f'{bringup_share}/config/realsense/realsense_d435.yaml'
-    lidar_config = f'{bringup_share}/config/lidar/rplidar_a2.yaml'
+    lidar_config = f'{bringup_share}/config/lidar/rplidar_a1m8.yaml'
     auto_arm_config = f'{bringup_share}/config/safety/auto_arm_disarm.yaml'
 
     robot_description = ParameterValue(
@@ -24,7 +24,7 @@ def generate_launch_description():
 
     fcu_url_arg = DeclareLaunchArgument(
         'fcu_url',
-        default_value='serial:///dev/ttyAMA0:115200',
+        default_value='serial:///dev/serial0:921600',
         description='ArduPilot FCU URL for MAVROS.',
     )
     gcs_url_arg = DeclareLaunchArgument(
@@ -134,6 +134,11 @@ def generate_launch_description():
                     LaunchConfiguration('tgt_component'),
                     value_type=int,
                 ),
+                # Pass allowlist explicitly to ensure plugins are loaded.
+                'plugin_allowlist': [
+                    'command', 'imu', 'local_position', 'manual_control',
+                    'rc_io', 'setpoint_velocity', 'sys_status', 'sys_time', 'vfr_hud',
+                ],
             },
         ],
     )

@@ -1,5 +1,6 @@
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import TwistStamped
+from mavros_msgs.msg import State
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile
@@ -15,11 +16,11 @@ class CmdVelToMavrosNode(Node):
         self.declare_parameter('debug_cmd_vel_topic', '/teleop/cmd_vel_limited')
         self.declare_parameter(
             'output_cmd_vel_stamped_topic',
-            '/mavros/mavros/cmd_vel',
+            '/mavros/setpoint_velocity/cmd_vel',
         )
         self.declare_parameter(
             'output_cmd_vel_unstamped_topic',
-            '/mavros/mavros/cmd_vel_unstamped',
+            '/mavros/setpoint_velocity/cmd_vel_unstamped',
         )
         self.declare_parameter('publish_rate', 15.0)
         self.declare_parameter('command_timeout', 0.35)
@@ -29,6 +30,7 @@ class CmdVelToMavrosNode(Node):
         self.declare_parameter('publish_stamped', True)
         self.declare_parameter('publish_unstamped', True)
         self.declare_parameter('body_frame_id', 'base_link')
+        self.declare_parameter('mavros_state_topic', '/mavros/state')
 
         self.input_cmd_vel_topic = self.get_parameter(
             'input_cmd_vel_topic'
@@ -66,6 +68,9 @@ class CmdVelToMavrosNode(Node):
         self.body_frame_id = self.get_parameter(
             'body_frame_id'
         ).get_parameter_value().string_value
+        self.mavros_state_topic = self.get_parameter(
+            'mavros_state_topic'
+        ).get_parameter_value().string_value
 
         qos = QoSProfile(depth=10)
 
@@ -91,11 +96,18 @@ class CmdVelToMavrosNode(Node):
             self.cmd_vel_callback,
             qos,
         )
+        self.create_subscription(
+            State,
+            self.mavros_state_topic,
+            self.mavros_state_callback,
+            qos,
+        )
 
         self.last_cmd = Twist()
         self.last_cmd_time = self.get_clock().now()
         self.has_received_command = False
         self.timeout_state = True
+        self.last_mavros_connected = None
 
         self.create_timer(1.0 / max(self.publish_rate, 1.0), self.publish_timer_callback)
 
@@ -134,6 +146,16 @@ class CmdVelToMavrosNode(Node):
         if self.timeout_state:
             self.get_logger().info('Teleop command stream detected, forwarding to MAVROS.')
         self.timeout_state = False
+
+    def mavros_state_callback(self, msg: State):
+        if self.last_mavros_connected is None or self.last_mavros_connected != msg.connected:
+            if msg.connected:
+                self.get_logger().info('MAVROS connected to FCU.')
+            else:
+                self.get_logger().warn(
+                    'MAVROS not connected to FCU: velocity setpoints will be ignored.'
+                )
+        self.last_mavros_connected = msg.connected
 
     def publish_timer_callback(self):
         if not self.has_received_command:

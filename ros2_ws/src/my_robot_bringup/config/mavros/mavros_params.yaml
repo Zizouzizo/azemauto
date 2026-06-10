@@ -5,15 +5,17 @@
     # Keep the APM/ArduPilot quirk disabled on normal UART links.
     startup_px4_usb_quirk: false
 
-    # Minimal allowlist for a stable rover bringup focused on RC override
-    # and MANUAL_CONTROL testing. This avoids several MAVROS plugins that
-    # currently collide on generic topic names such as `status` and `send`.
+    # Full allowlist for rover teleop and navigation.
+    # setpoint_velocity required for cmd_vel bridge.
+    # local_position required for mavros_bridge odom topic.
+    # rc_io and manual_control required for RC override and MANUAL_CONTROL modes.
     plugin_allowlist:
       - command
       - imu
       - local_position
       - manual_control
       - rc_io
+      - setpoint_velocity
       - sys_status
       - sys_time
       - vfr_hud
@@ -48,7 +50,7 @@
 /**/local_position:
   ros__parameters:
     frame_id: "odom"
-    tf.send: false
+    tf.send: true
     tf.frame_id: "odom"
     tf.child_frame_id: "base_link"
     tf.send_fcu: false
@@ -64,4 +66,4 @@
 
 /**/setpoint_velocity:
   ros__parameters:
-    mav_frame: LOCAL_NED
+    mav_frame: BODY_NED

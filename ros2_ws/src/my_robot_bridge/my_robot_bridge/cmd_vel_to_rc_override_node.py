@@ -9,12 +9,14 @@ class CmdVelToRcOverrideNode(Node):
     """Bridge /cmd_vel commands to MAVROS RC override steering/throttle PWM."""
 
     RC_CHANNEL_COUNT = 18
+    TIMEOUT_BEHAVIOR_NEUTRAL = 'neutral'
+    TIMEOUT_BEHAVIOR_RELEASE = 'release'
 
     def __init__(self):
         super().__init__('cmd_vel_to_rc_override')
 
         self.declare_parameter('input_cmd_vel_topic', '/cmd_vel')
-        self.declare_parameter('output_rc_override_topic', '/mavros/mavros/override')
+        self.declare_parameter('output_rc_override_topic', '/mavros/rc/override')
         self.declare_parameter('publish_rate', 15.0)
         self.declare_parameter('steering_channel', 1)
         self.declare_parameter('throttle_channel', 3)
@@ -26,6 +28,7 @@ class CmdVelToRcOverrideNode(Node):
         self.declare_parameter('steering_gain', 1.0)
         self.declare_parameter('throttle_gain', 1.0)
         self.declare_parameter('timeout_sec', 0.35)
+        self.declare_parameter('timeout_behavior', self.TIMEOUT_BEHAVIOR_RELEASE)
 
         self.input_cmd_vel_topic = self.get_parameter(
             'input_cmd_vel_topic'
@@ -66,6 +69,9 @@ class CmdVelToRcOverrideNode(Node):
         self.timeout_sec = self.get_parameter(
             'timeout_sec'
         ).get_parameter_value().double_value
+        self.timeout_behavior = self.get_parameter(
+            'timeout_behavior'
+        ).get_parameter_value().string_value
 
         self.validate_parameters()
 
@@ -91,7 +97,7 @@ class CmdVelToRcOverrideNode(Node):
         self.timeout_state = True
 
         self.create_timer(
-            1.0 / max(self.publish_rate, 1.0),
+            1.0 / self.publish_rate,
             self.publish_timer_callback,
         )
 
@@ -101,7 +107,8 @@ class CmdVelToRcOverrideNode(Node):
             f'output={self.output_rc_override_topic}, '
             f'steering_ch={self.steering_channel}, '
             f'throttle_ch={self.throttle_channel}, '
-            f'pwm=[{self.min_pwm},{self.neutral_pwm},{self.max_pwm}]'
+            f'pwm=[{self.min_pwm},{self.neutral_pwm},{self.max_pwm}], '
+            f'timeout_behavior={self.timeout_behavior}'
         )
 
     def validate_parameters(self):
@@ -125,6 +132,13 @@ class CmdVelToRcOverrideNode(Node):
             )
         if self.steering_channel == self.throttle_channel:
             raise ValueError('steering_channel and throttle_channel must differ')
+        if self.timeout_behavior not in (
+            self.TIMEOUT_BEHAVIOR_NEUTRAL,
+            self.TIMEOUT_BEHAVIOR_RELEASE,
+        ):
+            raise ValueError(
+                'timeout_behavior must be "neutral" or "release"'
+            )
 
     def channel_to_index(self, channel_number: int) -> int:
         return channel_number - 1
@@ -176,6 +190,18 @@ class CmdVelToRcOverrideNode(Node):
             self.neutral_pwm,
         )
 
+    def release_message(self):
+        return self.build_override_message(
+            OverrideRCIn.CHAN_RELEASE,
+            OverrideRCIn.CHAN_RELEASE,
+        )
+
+    def timeout_message(self):
+        if self.timeout_behavior == self.TIMEOUT_BEHAVIOR_NEUTRAL:
+            return self.neutral_message()
+
+        return self.release_message()
+
     def command_message(self):
         throttle_normalized = self.normalize(
             self.last_cmd.linear.x,
@@ -198,16 +224,17 @@ class CmdVelToRcOverrideNode(Node):
 
     def publish_timer_callback(self):
         if not self.has_received_command:
-            msg = self.neutral_message()
+            msg = self.timeout_message()
         else:
             age_seconds = (
                 self.get_clock().now() - self.last_cmd_time
             ).nanoseconds / 1e9
             if age_seconds > self.timeout_sec:
-                msg = self.neutral_message()
+                msg = self.timeout_message()
                 if not self.timeout_state:
                     self.get_logger().warn(
-                        'Teleop command timeout reached, republishing neutral RC override.'
+                        'Teleop command timeout reached, publishing '
+                        f'{self.timeout_behavior} RC override.'
                     )
                 self.timeout_state = True
             else:

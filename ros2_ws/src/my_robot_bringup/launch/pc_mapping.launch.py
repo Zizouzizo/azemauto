@@ -46,7 +46,7 @@ def generate_launch_description():
     )
     use_static_odom_tf_arg = DeclareLaunchArgument(
         'use_static_odom_tf',
-        default_value='false',
+        default_value='true',
         description='Publish a temporary odom->base_link transform when no odometry is available.',
     )
     joy_dev_arg = DeclareLaunchArgument(
@@ -102,7 +102,7 @@ def generate_launch_description():
             {
                 'input_scan_topic': '/scan/raw',
                 'output_scan_topic': '/scan',
-                'output_frame_id': 'camera_link',
+                'output_frame_id': 'laser_link',
             },
         ],
     )

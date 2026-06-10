@@ -1,7 +1,7 @@
 cmd_vel_to_rc_override:
   ros__parameters:
     input_cmd_vel_topic: /cmd_vel
-    output_rc_override_topic: /mavros/mavros/override
+    output_rc_override_topic: /mavros/rc/override
     publish_rate: 15.0
     steering_channel: 1
     throttle_channel: 3
@@ -13,3 +13,4 @@ cmd_vel_to_rc_override:
     steering_gain: 1.0
     throttle_gain: 1.0
     timeout_sec: 0.35
+    timeout_behavior: release

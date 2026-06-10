@@ -9,7 +9,6 @@ if [ -f "${SCRIPT_DIR}/install/setup.bash" ]; then
 fi
 
 export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-42}"
-export RMW_IMPLEMENTATION="${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}"
 export ROS_LOCALHOST_ONLY=0
 export CYCLONEDDS_URI="file://${SCRIPT_DIR}/src/my_robot_bringup/config/network/cyclonedds.xml"
 

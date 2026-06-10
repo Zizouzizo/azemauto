@@ -17,6 +17,8 @@ auto_arm_disarm:
     require_amcl_for_disarm: true
     disarm_on_mode_change: true
     disarm_on_sensor_loss: true
+    # collision_stop_confirm_time: disarm confirmation delay when collision_monitor
+    # halts the robot (cmd_vel_nav non-zero while cmd_vel is zeroed).
     # Set high to disable disarm-on-collision-stop: the robot should replan
     # and resume rather than disarm when the collision monitor halts it.
     collision_stop_confirm_time: 999.0

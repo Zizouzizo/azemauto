@@ -77,7 +77,7 @@ Pourquoi ce choix :
 - Le lien Pi -> contrôleur ArduPilot passe par `/dev/ttyACM0` en `115200` bauds par défaut.
 - Le Pi et le PC sont sur le même réseau local et peuvent échanger du multicast DDS.
 - La RealSense D435 est branchée au Raspberry Pi 4 et reconnue par le système.
-- Un RPLIDAR A2 est branché au Raspberry Pi 4 sur `/dev/ttyUSB0`.
+- Un RPLIDAR A1M8 est branché au Raspberry Pi 4 sur `/dev/ttyUSB0`.
 - L'odom ArduPilot fournit bien la TF `odom -> base_link` via `my_robot_bridge`.
 - Pour la téléop ROS 2 vers ArduPilot, le rover sera placé en mode `GUIDED` avant envoi des commandes.
 
@@ -114,13 +114,18 @@ ros2_ws/
 ├── README.md
 ├── pc_env.sh
 ├── pi_env.sh
+├── scripts/
+│   └── setup_geographiclib.sh
 └── src/
     ├── my_robot_bridge/
     │   ├── my_robot_bridge/
     │   │   ├── __init__.py
     │   │   ├── auto_arm_disarm_node.py
+    │   │   ├── cmd_vel_to_manual_control_node.py
     │   │   ├── cmd_vel_to_mavros_node.py
-    │   │   └── mavros_bridge_node.py
+    │   │   ├── cmd_vel_to_rc_override_node.py
+    │   │   ├── mavros_bridge_node.py
+    │   │   └── scan_timestamp_bridge_node.py
     │   ├── package.xml
     │   ├── resource/
     │   │   └── my_robot_bridge
@@ -140,7 +145,7 @@ ros2_ws/
     │   │   ├── nav2/
     │   │   │   └── nav2_ackermann.yaml
     │   │   ├── lidar/
-    │   │   │   └── rplidar_a2.yaml
+    │   │   │   └── rplidar_a1m8.yaml
     │   │   ├── mapping/
     │   │   │   ├── depth_to_scan.yaml
     │   │   │   └── slam_toolbox_mapping.yaml
@@ -153,7 +158,9 @@ ros2_ws/
     │   │   ├── safety/
     │   │   │   └── auto_arm_disarm.yaml
     │   │   └── teleop/
+    │   │       ├── cmd_vel_to_manual_control.yaml
     │   │       ├── cmd_vel_to_mavros.yaml
+    │   │       ├── cmd_vel_to_rc_override.yaml
     │   │       └── xbox_teleop.yaml
     │   ├── launch/
     │   │   ├── pc_nav2.launch.py
@@ -184,6 +191,91 @@ ros2_ws/
             ├── azemauto_mapping.rviz
             └── azemauto_nav2.rviz
 ```
+
+## Référence technique du code actuel
+
+### Packages ROS 2 du workspace
+
+| Package | Type | Rôle principal |
+| --- | --- | --- |
+| `my_robot_bridge` | `ament_python` | Nœuds de bridge entre MAVROS, topics propres ROS 2 et supervision sécurité |
+| `my_robot_bringup` | `ament_python` | Launch files, paramètres capteurs/navigation/sécurité, BT Nav2 Ackermann |
+| `my_robot_description` | `ament_cmake` | Modèle `xacro` du rover, frames, launch RViz de description |
+| `my_robot_rviz` | `ament_cmake` | Profils RViz dédiés (visualisation, mapping, localisation, nav2) |
+
+### Nœuds personnalisés (`my_robot_bridge`)
+
+| Nœud | Entrées | Sorties | Usage |
+| --- | --- | --- | --- |
+| `mavros_bridge` | `/mavros/imu/data`, `/mavros/global_position/global`, `/mavros/mavros/odom` | `/sensors/imu/data`, `/sensors/gps/fix`, `/odom/raw`, marqueurs GPS/IMU, path GPS | Nettoyer les topics MAVROS et publier TF `odom -> base_link` |
+| `cmd_vel_to_mavros` | `/cmd_vel` | `/teleop/cmd_vel_limited`, `/mavros/setpoint_velocity/cmd_vel`, `/mavros/setpoint_velocity/cmd_vel_unstamped` | Bridge vitesse standard vers MAVROS |
+| `cmd_vel_to_rc_override` | `/cmd_vel` | `/mavros/mavros/override` (`OverrideRCIn`) | Pilotage par PWM RC override |
+| `cmd_vel_to_manual_control` | `/cmd_vel` | `/mavros/mavros/send` (`ManualControl`) | Pilotage via message MAVLink `MANUAL_CONTROL` |
+| `auto_arm_disarm` | état MAVROS + `/scan` + `/odom/raw` + `/amcl_pose` + `/cmd_vel` + `/cmd_vel_nav` | appels services `/mavros/set_mode` et `/mavros/cmd/arming` | Arm/disarm automatique sous contraintes capteurs/sécurité |
+| `scan_timestamp_bridge` | `/scan/raw` | `/scan` | Re-stamp du LaserScan (utilisé en fallback depth-to-scan pendant le mapping PC) |
+
+### Modes `control_mode` disponibles sur le Raspberry Pi
+
+Le launch `pi_mapping.launch.py` peut sélectionner 3 bridges de commande :
+
+| `control_mode` | Nœud activé | Topic MAVROS de sortie | Fichier de config |
+| --- | --- | --- | --- |
+| `mavros_cmd_vel` (défaut) | `cmd_vel_to_mavros` | `/mavros/setpoint_velocity/cmd_vel` (+ `cmd_vel_unstamped`) | `config/teleop/cmd_vel_to_mavros.yaml` |
+| `rc_override` | `cmd_vel_to_rc_override` | `/mavros/mavros/override` | `config/teleop/cmd_vel_to_rc_override.yaml` |
+| `manual_control` | `cmd_vel_to_manual_control` | `/mavros/mavros/send` | `config/teleop/cmd_vel_to_manual_control.yaml` |
+
+Exemples :
+
+```bash
+# Bridge RC override
+ros2 launch my_robot_bringup pi_mapping.launch.py control_mode:=rc_override
+
+# Bridge MANUAL_CONTROL
+ros2 launch my_robot_bringup pi_mapping.launch.py control_mode:=manual_control
+```
+
+### Launch files et arguments clés
+
+| Launch | Machine | Arguments utiles (default) |
+| --- | --- | --- |
+| `pi_bringup.launch.py` | Pi | `fcu_url:=serial:///dev/serial0:921600`, `use_lidar:=true`, `use_camera:=true`, `auto_arm:=false` |
+| `pi_mapping.launch.py` | Pi | `fcu_url:=serial:///dev/serial0:921600`, `control_mode:=mavros_cmd_vel`, `command_timeout:=0.35`, `publish_rate:=15.0` |
+| `pc_mapping.launch.py` | PC | `use_lidar:=true`, `use_camera:=true`, `use_joy:=false`, `use_static_odom_tf:=false` |
+| `pc_localization.launch.py` | PC | `map_file:=$HOME/azemauto_maps/azemauto_site_01.yaml`, `autostart:=true` |
+| `pc_nav2.launch.py` | PC | `map_file:=$HOME/azemauto_maps/azemauto_site_01.yaml`, `params_file:=config/nav2/nav2_ackermann.yaml`, `use_rviz:=true` |
+| `pc_visualization.launch.py` | PC | `start_description:=false` |
+| `pc_teleop_joy.launch.py` | PC | `joy_dev:=0`, `start_description:=false` |
+| `future_localization.launch.py` | PC | Lance `ekf_node` + `navsat_transform_node` (templates `robot_localization`) |
+
+### Profils RViz disponibles
+
+| Fichier RViz | Cible principale | Fixed frame par défaut |
+| --- | --- | --- |
+| `my_robot_rviz/rviz/azemauto.rviz` | Visualisation générale capteurs + TF | `odom` |
+| `my_robot_rviz/rviz/azemauto_mapping.rviz` | Mapping `slam_toolbox` | `map` |
+| `my_robot_rviz/rviz/azemauto_localization.rviz` | AMCL + carte + `2D Pose Estimate` | `map` |
+| `my_robot_rviz/rviz/azemauto_nav2.rviz` | Navigation Nav2 (plans + costmaps + Goal tool) | `map` |
+| `my_robot_description/rviz/display_description.rviz` | Inspection du modèle URDF seul | `base_link` |
+
+### Dimensions et capteurs (URDF `azemauto.urdf.xacro`)
+
+- Gabarit robot : `1.28 m` (longueur), `1.05 m` (largeur), `0.46 m` (hauteur).
+- Roues : rayon `0.155 m`, demi-empattement `0.475 m`, demi-voie `0.535 m`.
+- Position capteurs dans `base_link` :
+  `imu_link` `(0.00, 0.00, 0.05)`,
+  `gps_link` `(-0.20, 0.00, 0.28)`,
+  `laser_link` `(0.22, 0.00, 0.34)`,
+  `camera_link` `(0.40, 0.00, 0.30)` (montée depuis `laser_link`).
+- Footprint Nav2 utilisé dans les costmaps :
+  `[[0.64, 0.525], [0.64, -0.525], [-0.64, -0.525], [-0.64, 0.525]]`.
+
+### Scripts utilitaires inclus
+
+| Script | Fonction |
+| --- | --- |
+| `pi_env.sh` | Charge ROS 2 + workspace + variables réseau (`ROS_DOMAIN_ID`, CycloneDDS) côté Pi |
+| `pc_env.sh` | Même logique côté PC |
+| `scripts/setup_geographiclib.sh` | Installe/vérifie le dataset `EGM96` requis par MAVROS |
 
 ## Dépendances système
 
@@ -285,7 +377,7 @@ source ~/azemauto/ros2_ws/pc_env.sh
 
 - `/mavros/imu/data` : IMU brute issue d'ArduPilot
 - `/mavros/global_position/global` : GPS brut MAVROS
-- `/mavros/local_position/odom` : odométrie MAVROS si disponible
+- `/mavros/mavros/odom` (ou `/mavros/local_position/odom` selon la config MAVROS) : odométrie MAVROS
 - `/sensors/imu/data` : IMU propre republiée par `my_robot_bridge`
 - `/sensors/gps/fix` : GPS propre republié par `my_robot_bridge`
 - `/odom/raw` : odométrie ROS 2 propre pour TF et futurs modules
@@ -306,8 +398,10 @@ source ~/azemauto/ros2_ws/pc_env.sh
 
 - `/cmd_vel` : commande de vitesse publiée depuis le PC
 - `/teleop/cmd_vel_limited` : commande limitée et republiée par le bridge sur le Pi
-- `/mavros/setpoint_velocity/cmd_vel` : commande MAVROS stamped
-- `/mavros/setpoint_velocity/cmd_vel_unstamped` : commande MAVROS unstamped
+- `/mavros/setpoint_velocity/cmd_vel` : consigne `TwistStamped` vers MAVROS (`control_mode:=mavros_cmd_vel`)
+- `/mavros/setpoint_velocity/cmd_vel_unstamped` : consigne `Twist` vers MAVROS (`control_mode:=mavros_cmd_vel`)
+- `/mavros/mavros/override` : sortie PWM `OverrideRCIn` (`control_mode:=rc_override`)
+- `/mavros/mavros/send` : sortie `ManualControl` (`control_mode:=manual_control`)
 
 ### Mapping
 
@@ -353,7 +447,7 @@ La chaîne attendue pour la localisation est :
 cd ~/azemauto/ros2_ws
 source pi_env.sh
 ros2 launch my_robot_bringup pi_bringup.launch.py \
-  fcu_url:=serial:///dev/ttyACM0:115200 \
+  fcu_url:=serial:///dev/serial0:921600 \
   use_lidar:=true \
   lidar_serial_port:=/dev/ttyUSB0 \
   use_camera:=true
@@ -391,7 +485,7 @@ Lance la version Pi qui inclut le bridge de commandes vers MAVROS :
 cd ~/azemauto/ros2_ws
 source pi_env.sh
 ros2 launch my_robot_bringup pi_mapping.launch.py \
-  fcu_url:=serial:///dev/ttyACM0:115200 \
+  fcu_url:=serial:///dev/serial0:921600 \
   use_lidar:=true \
   lidar_serial_port:=/dev/ttyUSB0 \
   use_camera:=true
@@ -447,7 +541,7 @@ Tu dois voir les commandes limitées apparaître quand tu conduis le robot.
 cd ~/azemauto/ros2_ws
 source pi_env.sh
 ros2 launch my_robot_bringup pi_mapping.launch.py \
-  fcu_url:=serial:///dev/ttyACM0:115200 \
+  fcu_url:=serial:///dev/serial0:921600 \
   use_lidar:=true \
   lidar_serial_port:=/dev/ttyUSB0 \
   use_camera:=true
@@ -538,7 +632,7 @@ Le Pi reste sur la chaîne acquisition classique :
 cd ~/azemauto/ros2_ws
 source pi_env.sh
 ros2 launch my_robot_bringup pi_bringup.launch.py \
-  fcu_url:=serial:///dev/ttyACM0:115200 \
+  fcu_url:=serial:///dev/serial0:921600 \
   use_lidar:=true \
   lidar_serial_port:=/dev/ttyUSB0 \
   use_camera:=true
@@ -643,7 +737,7 @@ Le Pi doit exposer les capteurs et surtout le bridge `/cmd_vel -> MAVROS` :
 cd ~/azemauto/ros2_ws
 source pi_env.sh
 ros2 launch my_robot_bringup pi_mapping.launch.py \
-  fcu_url:=serial:///dev/ttyACM0:115200 \
+  fcu_url:=serial:///dev/serial0:921600 \
   use_lidar:=true \
   lidar_serial_port:=/dev/ttyUSB0 \
   use_camera:=true \
@@ -810,7 +904,7 @@ Important :
 cd ~/azemauto/ros2_ws
 source pi_env.sh
 ros2 launch my_robot_bringup pi_mapping.launch.py \
-  fcu_url:=serial:///dev/ttyACM0:115200 \
+  fcu_url:=serial:///dev/serial0:921600 \
   use_lidar:=true \
   lidar_serial_port:=/dev/ttyUSB0 \
   use_camera:=true \

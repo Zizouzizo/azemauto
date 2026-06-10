@@ -3,6 +3,9 @@
   Mirrors the default Nav2 tree but removes Spin recovery.
   SmoothPath applied after planning for fluid trajectory following.
   IsPathValid triggers immediate replanning when the path is blocked.
+  Note: BackUp recovery moves 0.20m — ensure clearance behind the robot before
+  the robot attempts recovery. Nav2 BackUp already checks the costmap during
+  movement and will stop on obstacle contact.
 -->
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
@@ -44,7 +47,7 @@
               service_name="global_costmap/clear_entirely_global_costmap"/>
           </Sequence>
           <Wait wait_duration="2.0"/>
-          <BackUp backup_dist="0.30" backup_speed="0.12"/>
+          <BackUp backup_dist="0.20" backup_speed="0.12"/>
         </RoundRobin>
       </ReactiveFallback>
     </RecoveryNode>

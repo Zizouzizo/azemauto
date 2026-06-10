@@ -24,7 +24,7 @@ def generate_launch_description():
 
     fcu_url_arg = DeclareLaunchArgument(
         'fcu_url',
-        default_value='serial:///dev/ttyACM0:115200',
+        default_value='serial:///dev/serial0:921600',
         description='ArduPilot FCU URL for MAVROS.',
     )
     gcs_url_arg = DeclareLaunchArgument(

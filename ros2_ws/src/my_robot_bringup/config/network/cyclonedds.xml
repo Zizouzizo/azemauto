@@ -3,7 +3,11 @@
   <Domain id="any">
     <General>
       <Interfaces>
-        <NetworkInterface autodetermine="true" multicast="default" />
+        <!-- Bind to the WiFi interface shared between Pi and PC.
+             Replace 'wlp0s20f3' with your actual interface name on each machine.
+             Run 'ip -o link show' or 'ip -o addr show' to find it.
+             On systems with unpredictable interface names, use bind="<ip_address>" instead. -->
+        <NetworkInterface name="wlp0s20f3" />
       </Interfaces>
       <AllowMulticast>true</AllowMulticast>
     </General>

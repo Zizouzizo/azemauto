@@ -24,7 +24,7 @@ class MavrosBridgeNode(Node):
 
         self.declare_parameter('source_imu_topic', '/mavros/imu/data')
         self.declare_parameter('source_gps_topic', '/mavros/global_position/global')
-        self.declare_parameter('source_odom_topic', '/mavros/mavros/odom')
+        self.declare_parameter('source_odom_topic', '/mavros/local_position/odom')
 
         self.declare_parameter('imu_topic', '/sensors/imu/data')
         self.declare_parameter('gps_topic', '/sensors/gps/fix')
@@ -107,7 +107,12 @@ class MavrosBridgeNode(Node):
 
         self.tf_broadcaster = TransformBroadcaster(self)
 
+        # Publish initial TF at startup so RViz displays the robot model
+        # immediately, even before the first odom message arrives.
+        self._publish_initial_tf()
+
         self.last_odom = None
+        self.last_odom_position = None
         self.gps_origin = None
         self.gps_path = Path()
         self.gps_path.header.frame_id = self.odom_frame_id
@@ -136,6 +141,20 @@ class MavrosBridgeNode(Node):
             f'imu={self.imu_topic}, gps={self.gps_topic}, odom={self.odom_topic}'
         )
 
+    def _publish_initial_tf(self):
+        t = TransformStamped()
+        t.header.stamp = self.get_clock().now().to_msg()
+        t.header.frame_id = self.odom_frame_id
+        t.child_frame_id = self.base_frame_id
+        t.transform.translation.x = 0.0
+        t.transform.translation.y = 0.0
+        t.transform.translation.z = 0.0
+        t.transform.rotation.x = 0.0
+        t.transform.rotation.y = 0.0
+        t.transform.rotation.z = 0.0
+        t.transform.rotation.w = 1.0
+        self.tf_broadcaster.sendTransform(t)
+
     def imu_callback(self, msg: Imu):
         clean_msg = copy.deepcopy(msg)
         clean_msg.header.frame_id = self.imu_frame_id
@@ -156,10 +175,10 @@ class MavrosBridgeNode(Node):
         marker.color.b = 0.25
         marker.color.a = 1.0
 
-        if self.last_odom is not None:
-            marker.pose.position.x = self.last_odom.pose.pose.position.x
-            marker.pose.position.y = self.last_odom.pose.pose.position.y
-            marker.pose.position.z = self.last_odom.pose.pose.position.z + 0.20
+        if self.last_odom_position is not None:
+            marker.pose.position.x = self.last_odom_position[0]
+            marker.pose.position.y = self.last_odom_position[1]
+            marker.pose.position.z = self.last_odom_position[2] + 0.20
 
         marker.pose.orientation = copy.deepcopy(msg.orientation)
         self.imu_marker_pub.publish(marker)
@@ -234,6 +253,11 @@ class MavrosBridgeNode(Node):
         clean_msg.header.frame_id = self.odom_frame_id
         clean_msg.child_frame_id = self.base_frame_id
         self.last_odom = clean_msg
+        self.last_odom_position = (
+            clean_msg.pose.pose.position.x,
+            clean_msg.pose.pose.position.y,
+            clean_msg.pose.pose.position.z,
+        )
         self.odom_pub.publish(clean_msg)
 
         if not self.publish_odom_tf:
